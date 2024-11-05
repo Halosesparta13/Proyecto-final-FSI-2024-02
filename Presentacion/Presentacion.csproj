@@ -46,11 +46,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="FormInmobilario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FormInmobilario.Designer.cs">
+      <DependentUpon>FormInmobilario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormInquilinos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInquilinos.Designer.cs">
+      <DependentUpon>FormInquilinos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPagos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPagos.Designer.cs">
+      <DependentUpon>FormPagos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPropietarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPropietarios.Designer.cs">
+      <DependentUpon>FormPropietarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormReportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReportes.Designer.cs">
+      <DependentUpon>FormReportes.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -75,6 +105,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Datos\Datos.csproj">
+      <Project>{8c086a62-1705-4188-85e4-b3a335b95efc}</Project>
+      <Name>Datos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Negocio\Negocio.csproj">
+      <Project>{6a56709e-9537-4df2-b6fc-2cace03e9665}</Project>
+      <Name>Negocio</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
