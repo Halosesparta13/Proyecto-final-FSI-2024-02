@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f19e5f02fc0b4d91b2a977d747bed491" Name="Diagram1">
+        <EntityTypeShape EntityType="ModelEF.Contrato" Width="1.5" PointX="7.5" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelEF.Inquilino" Width="1.5" PointX="5.25" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelEF.Mantenimiento" Width="1.5" PointX="5.25" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelEF.Pago" Width="1.5" PointX="9.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelEF.Permiso" Width="1.5" PointX="5.25" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelEF.Propiedad" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelEF.Rol" Width="1.5" PointX="3" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelEF.sysdiagrams" Width="1.5" PointX="2.5" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelEF.Usuario" Width="1.5" PointX="0.75" PointY="6.5" IsExpanded="true" />
+        <AssociationConnector Association="ModelEF.FK__Contrato__Id_Inq__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="ModelEF.FK__Contrato__Propie__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="ModelEF.FK__Pago__Contrato_I__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="ModelEF.FK__Inquilino__Propi__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="ModelEF.FK__Mantenimi__Propi__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="ModelEF.FK__Permiso__Rol_IdR__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="ModelEF.FK__Propiedad__Usuar__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="ModelEF.FK__Rol__Usuario_IdU__398D8EEE" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
