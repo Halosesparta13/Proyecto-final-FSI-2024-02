@@ -56,6 +56,9 @@
     <Compile Include="Contrato.cs">
       <DependentUpon>ModelEF.tt</DependentUpon>
     </Compile>
+    <Compile Include="DInmobiliaria.cs" />
+    <Compile Include="DInquilino.cs" />
+    <Compile Include="DPagos.cs" />
     <Compile Include="Inquilino.cs">
       <DependentUpon>ModelEF.tt</DependentUpon>
     </Compile>

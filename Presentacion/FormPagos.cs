@@ -16,5 +16,15 @@ namespace Presentacion
         {
             InitializeComponent();
         }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormPagos_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
