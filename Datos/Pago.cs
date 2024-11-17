@@ -25,6 +25,7 @@ namespace Datos
         public double Monto { get; set; }
         public string MetodoPago { get; set; }
         public int Id_Contrato { get; set; }
+        public string Estado { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contrato> Contrato { get; set; }

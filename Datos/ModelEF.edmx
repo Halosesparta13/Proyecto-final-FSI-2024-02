@@ -16,6 +16,7 @@
           <Property Name="FechaFinalización" Type="datetime" Nullable="false" />
           <Property Name="IdPropiedad" Type="int" Nullable="false" />
           <Property Name="IdPago" Type="int" Nullable="false" />
+          <Property Name="Estado" Type="varbinary" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Inquilino">
           <Key>
@@ -27,6 +28,8 @@
           <Property Name="CorreoElectronicoInquilino" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="DNI" Type="varchar" MaxLength="8" Nullable="false" />
           <Property Name="IdPropiedad" Type="int" Nullable="false" />
+          <Property Name="Estado" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Eliminado" Type="nchar" MaxLength="1" Nullable="false" />
         </EntityType>
         <EntityType Name="Pago">
           <Key>
@@ -37,6 +40,7 @@
           <Property Name="Monto" Type="float" Nullable="false" />
           <Property Name="MetodoPago" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Id_Contrato" Type="int" Nullable="false" />
+          <Property Name="Estado" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Propiedad">
           <Key>
@@ -191,6 +195,7 @@
           <Property Name="FechaFinalización" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="IdPropiedad" Type="Int32" Nullable="false" />
           <Property Name="IdPago" Type="Int32" Nullable="false" />
+          <Property Name="Estado" Type="Binary" MaxLength="50" FixedLength="false" Nullable="false" />
           <NavigationProperty Name="Pago" Relationship="Self.FK_Contrato_Pago" FromRole="Contrato" ToRole="Pago" />
           <NavigationProperty Name="Propiedad" Relationship="Self.FK_Contrato_Propiedad" FromRole="Contrato" ToRole="Propiedad" />
         </EntityType>
@@ -204,6 +209,8 @@
           <Property Name="CorreoElectronicoInquilino" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="DNI" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="IdPropiedad" Type="Int32" Nullable="false" />
+          <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Eliminado" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Propiedad" Relationship="Self.FK_Inquilino_Propiedad" FromRole="Inquilino" ToRole="Propiedad" />
         </EntityType>
         <EntityType Name="Pago">
@@ -215,6 +222,7 @@
           <Property Name="Monto" Type="Double" Nullable="false" />
           <Property Name="MetodoPago" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Id_Contrato" Type="Int32" Nullable="false" />
+          <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Contrato" Relationship="Self.FK_Contrato_Pago" FromRole="Pago" ToRole="Contrato" />
         </EntityType>
         <EntityType Name="Propiedad">
@@ -374,6 +382,7 @@
                 <ScalarProperty Name="FechaFinalización" ColumnName="FechaFinalización" />
                 <ScalarProperty Name="IdPropiedad" ColumnName="IdPropiedad" />
                 <ScalarProperty Name="IdPago" ColumnName="IdPago" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -386,6 +395,8 @@
                 <ScalarProperty Name="CorreoElectronicoInquilino" ColumnName="CorreoElectronicoInquilino" />
                 <ScalarProperty Name="DNI" ColumnName="DNI" />
                 <ScalarProperty Name="IdPropiedad" ColumnName="IdPropiedad" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Eliminado" ColumnName="Eliminado" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -397,6 +408,7 @@
                 <ScalarProperty Name="Monto" ColumnName="Monto" />
                 <ScalarProperty Name="MetodoPago" ColumnName="MetodoPago" />
                 <ScalarProperty Name="Id_Contrato" ColumnName="Id_Contrato" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

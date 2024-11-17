@@ -20,6 +20,8 @@ namespace Datos
         public string CorreoElectronicoInquilino { get; set; }
         public string DNI { get; set; }
         public int IdPropiedad { get; set; }
+        public string Estado { get; set; }
+        public string Eliminado { get; set; }
     
         public virtual Propiedad Propiedad { get; set; }
     }

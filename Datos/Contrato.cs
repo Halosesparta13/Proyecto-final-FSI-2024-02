@@ -19,6 +19,7 @@ namespace Datos
         public System.DateTime FechaFinalización { get; set; }
         public int IdPropiedad { get; set; }
         public int IdPago { get; set; }
+        public byte[] Estado { get; set; }
     
         public virtual Pago Pago { get; set; }
         public virtual Propiedad Propiedad { get; set; }
