@@ -19,26 +19,22 @@ namespace Datos
         {
             this.Contrato = new HashSet<Contrato>();
             this.Inquilino = new HashSet<Inquilino>();
-            this.Mantenimiento = new HashSet<Mantenimiento>();
         }
     
-        public int IdPropietario { get; set; }
-        public int Direccion { get; set; }
-        public int Tipo { get; set; }
-        public int Area { get; set; }
-        public int Num_Habitacion { get; set; }
-        public int Precio { get; set; }
-        public int Estado { get; set; }
-        public int Descripcion { get; set; }
-        public int ID_Propietario { get; set; }
-        public int Usuario_IdUsuario { get; set; }
+        public int IdPropiedad { get; set; }
+        public string Direccion { get; set; }
+        public string TipoPropiedad { get; set; }
+        public double Area { get; set; }
+        public int Num_Habitaciones { get; set; }
+        public string Descripcion { get; set; }
+        public int IdUsuario { get; set; }
+        public string Eliminado { get; set; }
+        public string Estado { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contrato> Contrato { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Inquilino> Inquilino { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Mantenimiento> Mantenimiento { get; set; }
         public virtual Usuario Usuario { get; set; }
     }
 }

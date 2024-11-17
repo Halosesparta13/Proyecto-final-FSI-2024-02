@@ -14,25 +14,13 @@ namespace Datos
     
     public partial class Inquilino
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Inquilino()
-        {
-            this.Contrato = new HashSet<Contrato>();
-        }
-    
         public int IdInquilino { get; set; }
-        public int NombresUsuario { get; set; }
-        public int ApellidosUsuario { get; set; }
-        public int Direccion { get; set; }
-        public int Telefono { get; set; }
-        public int CorreoElectronico { get; set; }
-        public int DNI { get; set; }
-        public int ID_Propiedad { get; set; }
-        public int Propiedad_IdPropietario { get; set; }
-        public int Contrato_IdContrato { get; set; }
+        public string NombreCompletoInquilino { get; set; }
+        public string Telefono { get; set; }
+        public string CorreoElectronicoInquilino { get; set; }
+        public string DNI { get; set; }
+        public int IdPropiedad { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Contrato> Contrato { get; set; }
         public virtual Propiedad Propiedad { get; set; }
     }
 }

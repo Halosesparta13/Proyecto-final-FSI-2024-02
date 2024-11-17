@@ -17,15 +17,13 @@ namespace Datos
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Rol()
         {
-            this.Permiso = new HashSet<Permiso>();
+            this.Usuario = new HashSet<Usuario>();
         }
     
         public int IdRol { get; set; }
-        public int Nombre { get; set; }
-        public int Usuario_IdUsuario { get; set; }
+        public string NombreRol { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Permiso> Permiso { get; set; }
-        public virtual Usuario Usuario { get; set; }
+        public virtual ICollection<Usuario> Usuario { get; set; }
     }
 }

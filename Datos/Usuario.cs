@@ -18,25 +18,23 @@ namespace Datos
         public Usuario()
         {
             this.Propiedad = new HashSet<Propiedad>();
-            this.Rol1 = new HashSet<Rol>();
         }
     
         public int IdUsuario { get; set; }
-        public int Codigo { get; set; }
-        public int Passwoard { get; set; }
-        public int Nombres { get; set; }
-        public int Apellidos { get; set; }
-        public int CorreoElectronico { get; set; }
-        public int Estado { get; set; }
-        public int FechaRegistro { get; set; }
-        public int DNI { get; set; }
-        public int Celular { get; set; }
-        public int RUC { get; set; }
-        public int Rol { get; set; }
+        public string UserName { get; set; }
+        public string Password { get; set; }
+        public string NombreCompleto { get; set; }
+        public string CorreoElectronico { get; set; }
+        public string DNI { get; set; }
+        public System.DateTime FechaRegistro { get; set; }
+        public string Celular { get; set; }
+        public string RUC { get; set; }
+        public int IdRol { get; set; }
+        public string Eliminado { get; set; }
+        public string Estado { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Propiedad> Propiedad { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Rol> Rol1 { get; set; }
+        public virtual Rol Rol { get; set; }
     }
 }

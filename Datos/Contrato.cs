@@ -14,24 +14,13 @@ namespace Datos
     
     public partial class Contrato
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Contrato()
-        {
-            this.Pago = new HashSet<Pago>();
-        }
-    
         public int IdContrato { get; set; }
-        public int FechaInicio { get; set; }
-        public int FechaFinalizacion { get; set; }
-        public int Condiciones { get; set; }
-        public int Tipo { get; set; }
-        public int Id_Propiedad { get; set; }
-        public int Id_Inquilino { get; set; }
-        public int Propiedad_IdPropietario { get; set; }
+        public System.DateTime FechaInicio { get; set; }
+        public System.DateTime FechaFinalización { get; set; }
+        public int IdPropiedad { get; set; }
+        public int IdPago { get; set; }
     
-        public virtual Inquilino Inquilino { get; set; }
+        public virtual Pago Pago { get; set; }
         public virtual Propiedad Propiedad { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Pago> Pago { get; set; }
     }
 }
