@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Datos
 {
-    internal class DInmobiliaria
+    public class DInmobiliaria
     {
         //Registrar
 
