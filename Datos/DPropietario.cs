@@ -6,14 +6,7 @@ using System.Threading.Tasks;
 
 namespace Datos
 {
-    internal class DInmobiliaria
+    internal class DPropietario
     {
-        //Registrar
-
-        //Listar Todo (activos)
-
-        //Eliminar
-
-        //Modificar
     }
 }

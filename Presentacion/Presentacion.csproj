@@ -96,8 +96,20 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormInmobilario.resx">
+      <DependentUpon>FormInmobilario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInquilinos.resx">
+      <DependentUpon>FormInquilinos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormPagos.resx">
       <DependentUpon>FormPagos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPropiedad.resx">
+      <DependentUpon>FormPropiedad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

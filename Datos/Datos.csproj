@@ -59,6 +59,7 @@
     <Compile Include="DInmobiliaria.cs" />
     <Compile Include="DInquilino.cs" />
     <Compile Include="DPagos.cs" />
+    <Compile Include="DPropietario.cs" />
     <Compile Include="Inquilino.cs">
       <DependentUpon>ModelEF.tt</DependentUpon>
     </Compile>
