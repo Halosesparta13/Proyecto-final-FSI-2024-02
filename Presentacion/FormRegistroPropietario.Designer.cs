@@ -1,6 +1,6 @@
 ﻿namespace Presentacion
 {
-    partial class FormPropiedad
+    partial class FormRegistroPropietario
     {
         /// <summary>
         /// Required designer variable.

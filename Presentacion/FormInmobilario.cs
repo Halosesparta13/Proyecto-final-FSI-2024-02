@@ -12,9 +12,11 @@ namespace Presentacion
 {
     public partial class FormInmobilario : Form
     {
-        public FormInmobilario()
+        int codigo;
+        public FormInmobilario(int codigo)
         {
             InitializeComponent();
+            this.codigo = codigo;
         }
     }
 }
