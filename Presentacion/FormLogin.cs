@@ -23,27 +23,24 @@ namespace Presentacion
             InitializeComponent();
         }
 
-        //Usuario predeterminado para uso de prueba
-
-
 
         //PORTEO DEL CODIGO TP EN PROGRESO
         private void btnIniciarSeccion_Click(object sender, EventArgs e)
         {
             // Obtener los datos introducidos por el usuario
-            string usuario = tbUsuario.Text;
-            string contraseña = tbContraseña.Text;
-            /*
+            string username = tbUsuario.Text;
+            string passwoard = tbContraseña.Text;
+            
             // Buscar el propietario en la lista
-            var propietario = usuariosRegistrados.FirstOrDefault(p => p.Nombre_Usuario == usuario);
+            var usuario = usuariosRegistrados.FirstOrDefault(p => p.UserName == username);
 
-            if (propietario != null)
+            if (usuario != null)
             {
                 // Verificar si la contraseña es correcta
-                if (propietario.Contraseña == contraseña)
+                if (usuario.Password == passwoard)
                 {
                     MessageBox.Show("Inicio de sesión exitosa.");
-                    FormInmobilario form = new FormInmobilario(propietario);
+                    FormInmobilario form = new FormInmobilario(usuario);
                     form.Show();
                 }
                 else
@@ -54,7 +51,7 @@ namespace Presentacion
             else
             {
                 MessageBox.Show("Usuario no encontrado.");
-            }*/
+            }
         }
 
         private void btnRegistrar_Click(object sender, EventArgs e)

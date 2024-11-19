@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Datos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,11 +13,12 @@ namespace Presentacion
 {
     public partial class FormInmobilario : Form
     {
-        int codigo;
-        public FormInmobilario(int codigo)
+
+        private Usuario usuario; // Almacena el objeto propietario
+        public FormInmobilario(Usuario usuario)
         {
             InitializeComponent();
-            this.codigo = codigo;
+            this.usuario = usuario;
         }
     }
 }
