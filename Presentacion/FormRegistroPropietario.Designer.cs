@@ -30,7 +30,6 @@
         {
             this.label8 = new System.Windows.Forms.Label();
             this.tbRUC = new System.Windows.Forms.TextBox();
-            this.btnEliminar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.btnLimpiar = new System.Windows.Forms.Button();
@@ -69,25 +68,16 @@
             this.tbRUC.Size = new System.Drawing.Size(145, 22);
             this.tbRUC.TabIndex = 38;
             // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Location = new System.Drawing.Point(37, 322);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(111, 44);
-            this.btnEliminar.TabIndex = 37;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(163, 322);
+            this.btnSalir.Location = new System.Drawing.Point(93, 320);
             this.btnSalir.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(111, 44);
             this.btnSalir.TabIndex = 36;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // label7
             // 
@@ -108,6 +98,7 @@
             this.btnLimpiar.TabIndex = 34;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // label6
             // 
@@ -213,6 +204,7 @@
             this.btnRegistrar.TabIndex = 22;
             this.btnRegistrar.Text = "Registrarse";
             this.btnRegistrar.UseVisualStyleBackColor = true;
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
             // label1
             // 
@@ -234,14 +226,13 @@
             this.dgPropietarios.Size = new System.Drawing.Size(403, 367);
             this.dgPropietarios.TabIndex = 20;
             // 
-            // FormPropiedad
+            // FormRegistroPropietario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(761, 450);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.tbRUC);
-            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnLimpiar);
@@ -259,7 +250,7 @@
             this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgPropietarios);
-            this.Name = "FormPropiedad";
+            this.Name = "FormRegistroPropietario";
             this.Text = "FormPropietarios";
             ((System.ComponentModel.ISupportInitialize)(this.dgPropietarios)).EndInit();
             this.ResumeLayout(false);
@@ -271,7 +262,6 @@
 
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox tbRUC;
-        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnLimpiar;

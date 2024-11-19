@@ -30,10 +30,14 @@ namespace Presentacion
             // Obtener los datos introducidos por el usuario
             string username = tbUsuario.Text;
             string passwoard = tbContraseña.Text;
-            
-            // Buscar el propietario en la lista
-            var usuario = usuariosRegistrados.FirstOrDefault(p => p.UserName == username);
 
+            if (username == "" || passwoard == "")
+            {
+                MessageBox.Show("Rellena todos los campos");
+                return;
+            }
+            // Buscar el propietario en la lista
+            var usuario = nUsuario.ListarTodo().FirstOrDefault(p => p.UserName == username);
             if (usuario != null)
             {
                 // Verificar si la contraseña es correcta
