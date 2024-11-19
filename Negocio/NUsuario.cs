@@ -11,8 +11,9 @@ namespace Negocio
     {
         private DUsuario dUsuario = new DUsuario();
         //Registrar
-        private string Registrar(Usuario usuario)
+        public string Registrar(Usuario usuario)
         {
+            usuario.Eliminado = "0";
             return dUsuario.Registrar(usuario);
         }
 
@@ -26,6 +27,18 @@ namespace Negocio
         public string EliminadoFisico(int idUsuario)
         {
             return dUsuario.EliminadoFisico(idUsuario);
+        }
+
+        //Modificar
+        public string Modificar(Usuario usuario)
+        {
+            return dUsuario.Modificar(usuario);
+        }
+
+        //Eliminar Lógico
+        public string EliminarLogico(int idUsuario)
+        {
+            return dUsuario.EliminarLogico(idUsuario);
         }
     }
 }

@@ -38,6 +38,8 @@ namespace Presentacion
             string celular = tbCelular.Text;
             string correo = tbCorreo.Text;
             string ruc = tbRUC.Text;
+            string username = tbNombreUsuario.Text;
+            string passwoard = tbContraseña.Text;
 
             if (tbRUC.Text == "" || tbNombreCompleto.Text == "" || tbNombreUsuario.Text == "" || tbDNI.Text == "" || tbCorreo.Text == "" || tbContraseña.Text == "" || tbCelular.Text == "")
             {
@@ -72,6 +74,23 @@ namespace Presentacion
                 return;
             }
 
+            Usuario usuario = new Usuario()
+            {
+                UserName = username,
+                Password = passwoard,
+                Rol = "Propietario",
+                NombreCompleto = tbNombreCompleto.Text,
+                CorreoElectronico = tbCorreo.Text,
+                DNI = tbDNI.Text,
+                FechaRegistro = DateTime.Now,
+                Celular = celular,
+                RUC = ruc,
+            };
+
+            string mensaje = nUsuario.Registrar(usuario);
+            MessageBox.Show(mensaje);
+
+            MostrarPropietarios(nUsuario.ListarTodo());
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)

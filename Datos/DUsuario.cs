@@ -15,10 +15,44 @@ namespace Datos
             {
                 using (var context = new BDEFEntities())
                 {
+                    var existeDNI = context.Usuario.Any(u => u.DNI == usuario.DNI);
+                    if (existeDNI)
+                    {
+                        return "Error: El DNI ya está registrado.";
+                    }
                     context.Usuario.Add(usuario);
                     context.SaveChanges();
                 }
                 return "Registrado correctamente";
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return ex.Message;
+
+            }
+        }
+
+        //Modificar
+        public string Modificar(Usuario usuario)
+        {
+            try
+            {
+                using (var context = new BDEFEntities())
+                {
+                    Usuario usuarioTemp = context.Usuario.Find(usuario.IdUsuario);
+                    usuarioTemp.UserName = usuario.UserName;
+                    usuarioTemp.Password = usuario.Password;
+                    usuarioTemp.Rol = usuario.Rol;
+                    usuarioTemp.Estado = usuario.Estado;
+                    usuarioTemp.NombreCompleto = usuario.NombreCompleto;
+                    usuarioTemp.CorreoElectronico = usuario.CorreoElectronico;
+                    usuarioTemp.DNI = usuario.DNI;
+                    usuarioTemp.Celular = usuario.Celular;
+                    usuarioTemp.RUC = usuario.RUC;
+                    context.SaveChanges();
+                }
+                return "Modificar correctamente";
             }
             catch (Exception ex)
             {
@@ -48,6 +82,25 @@ namespace Datos
             }
         }
 
+        //Eliminar Lógico
+        public string EliminarLogico(int idUsuario)
+        {
+            try
+            {
+                using (var context = new BDEFEntities())
+                {
+                    Usuario usuarioTemp = context.Usuario.Find(idUsuario);
+                    usuarioTemp.Eliminado = "1";
+                    context.SaveChanges();
+                }
+                return "Eliminación correctamente";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
         //Eliminar fisico
         public string EliminadoFisico(int idUsuario)
         {
@@ -66,6 +119,5 @@ namespace Datos
                 return ex.Message;
             }
         }
-        //Modificar
     }
 }
