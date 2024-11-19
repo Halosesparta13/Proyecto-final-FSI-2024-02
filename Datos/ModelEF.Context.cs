@@ -29,7 +29,6 @@ namespace Datos
         public virtual DbSet<Inquilino> Inquilino { get; set; }
         public virtual DbSet<Pago> Pago { get; set; }
         public virtual DbSet<Propiedad> Propiedad { get; set; }
-        public virtual DbSet<Rol> Rol { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }
     }

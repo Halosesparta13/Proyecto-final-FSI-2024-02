@@ -56,13 +56,6 @@
           <Property Name="Eliminado" Type="nchar" MaxLength="1" Nullable="false" />
           <Property Name="Estado" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <EntityType Name="Rol">
-          <Key>
-            <PropertyRef Name="IdRol" />
-          </Key>
-          <Property Name="IdRol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NombreRol" Type="varchar" MaxLength="50" Nullable="false" />
-        </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -80,13 +73,13 @@
           <Property Name="IdUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Rol" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="NombreCompleto" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="CorreoElectronico" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="DNI" Type="varchar" MaxLength="8" Nullable="false" />
           <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
           <Property Name="Celular" Type="varchar" MaxLength="9" Nullable="false" />
           <Property Name="RUC" Type="varchar" MaxLength="11" Nullable="false" />
-          <Property Name="IdRol" Type="int" Nullable="false" />
           <Property Name="Eliminado" Type="nchar" MaxLength="1" Nullable="false" />
           <Property Name="Estado" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
@@ -138,24 +131,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Usuario_Rol">
-          <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
-          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Rol">
-              <PropertyRef Name="IdRol" />
-            </Principal>
-            <Dependent Role="Usuario">
-              <PropertyRef Name="IdRol" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="ModelEFStoreContainer">
           <EntitySet Name="Contrato" EntityType="Self.Contrato" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Inquilino" EntityType="Self.Inquilino" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Pago" EntityType="Self.Pago" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Propiedad" EntityType="Self.Propiedad" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Contrato_Pago" Association="Self.FK_Contrato_Pago">
@@ -173,10 +153,6 @@
           <AssociationSet Name="FK_Propiedad_Usuario" Association="Self.FK_Propiedad_Usuario">
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="Propiedad" EntitySet="Propiedad" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Usuario_Rol" Association="Self.FK_Usuario_Rol">
-            <End Role="Rol" EntitySet="Rol" />
-            <End Role="Usuario" EntitySet="Usuario" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -242,14 +218,6 @@
           <NavigationProperty Name="Inquilino" Relationship="Self.FK_Inquilino_Propiedad" FromRole="Propiedad" ToRole="Inquilino" />
           <NavigationProperty Name="Usuario" Relationship="Self.FK_Propiedad_Usuario" FromRole="Propiedad" ToRole="Usuario" />
         </EntityType>
-        <EntityType Name="Rol">
-          <Key>
-            <PropertyRef Name="IdRol" />
-          </Key>
-          <Property Name="IdRol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NombreRol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Usuario" Relationship="Self.FK_Usuario_Rol" FromRole="Rol" ToRole="Usuario" />
-        </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -267,17 +235,16 @@
           <Property Name="IdUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Rol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="NombreCompleto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CorreoElectronico" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="DNI" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Celular" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="RUC" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="IdRol" Type="Int32" Nullable="false" />
           <Property Name="Eliminado" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Propiedad" Relationship="Self.FK_Propiedad_Usuario" FromRole="Usuario" ToRole="Propiedad" />
-          <NavigationProperty Name="Rol" Relationship="Self.FK_Usuario_Rol" FromRole="Usuario" ToRole="Rol" />
         </EntityType>
         <Association Name="FK_Contrato_Pago">
           <End Role="Pago" Type="Self.Pago" Multiplicity="1" />
@@ -327,24 +294,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Usuario_Rol">
-          <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
-          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Rol">
-              <PropertyRef Name="IdRol" />
-            </Principal>
-            <Dependent Role="Usuario">
-              <PropertyRef Name="IdRol" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="BDEFEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Contrato" EntityType="Self.Contrato" />
           <EntitySet Name="Inquilino" EntityType="Self.Inquilino" />
           <EntitySet Name="Pago" EntityType="Self.Pago" />
           <EntitySet Name="Propiedad" EntityType="Self.Propiedad" />
-          <EntitySet Name="Rol" EntityType="Self.Rol" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" />
           <AssociationSet Name="FK_Contrato_Pago" Association="Self.FK_Contrato_Pago">
@@ -362,10 +316,6 @@
           <AssociationSet Name="FK_Propiedad_Usuario" Association="Self.FK_Propiedad_Usuario">
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="Propiedad" EntitySet="Propiedad" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Usuario_Rol" Association="Self.FK_Usuario_Rol">
-            <End Role="Rol" EntitySet="Rol" />
-            <End Role="Usuario" EntitySet="Usuario" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -427,14 +377,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Rol">
-            <EntityTypeMapping TypeName="ModelEF.Rol">
-              <MappingFragment StoreEntitySet="Rol">
-                <ScalarProperty Name="IdRol" ColumnName="IdRol" />
-                <ScalarProperty Name="NombreRol" ColumnName="NombreRol" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
             <EntityTypeMapping TypeName="ModelEF.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
@@ -452,13 +394,13 @@
                 <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Rol" ColumnName="Rol" />
                 <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
                 <ScalarProperty Name="CorreoElectronico" ColumnName="CorreoElectronico" />
                 <ScalarProperty Name="DNI" ColumnName="DNI" />
                 <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
                 <ScalarProperty Name="Celular" ColumnName="Celular" />
                 <ScalarProperty Name="RUC" ColumnName="RUC" />
-                <ScalarProperty Name="IdRol" ColumnName="IdRol" />
                 <ScalarProperty Name="Eliminado" ColumnName="Eliminado" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
               </MappingFragment>

@@ -85,9 +85,6 @@
     <Compile Include="Propiedad.cs">
       <DependentUpon>ModelEF.tt</DependentUpon>
     </Compile>
-    <Compile Include="Rol.cs">
-      <DependentUpon>ModelEF.tt</DependentUpon>
-    </Compile>
     <Compile Include="sysdiagrams.cs">
       <DependentUpon>ModelEF.tt</DependentUpon>
     </Compile>
