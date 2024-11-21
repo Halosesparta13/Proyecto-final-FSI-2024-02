@@ -2,13 +2,7 @@
 using Negocio;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.Entity;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Presentacion
@@ -22,96 +16,31 @@ namespace Presentacion
             InitializeComponent();
             this.usuario = usuario;
         }
-        private BDEFEntities _dbContext;
-        public FormInmobilario()
-        {
-            InitializeComponent();
-            _dbContext = new BDEFEntities();
-            CargarInmobiliaria();
-        }
-
         private void CargarInmobiliaria()
         {
             throw new NotImplementedException();
         }
 
-        private void CargarInmboliaria()
+        private void MostrarImmobiliarios(List<Inmobiliario> inmobiliarios)
         {
-            try
+            dgInmobiliario.DataSource = null;
+            if(inmobiliarios.Count == 0)
             {
-
-                var propiedad = _dbContext.Propiedad
-                    .Where(i => i.Eliminado != "1")
-                    .Select(i => new
-                    {
-                        i.IdPropiedad,
-                        i.Direccion,
-                        i.TipoPropiedad,
-                        i.Area,
-                        i.Num_Habitaciones,
-                        i.Descripcion,
-                        i.IdUsuario,
-                        i.Estado
-                    })
-                    .ToList();
-
-
-                dgInmobiliario.DataSource = propiedad;
+                return;
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show($"Error al cargar los datos: {ex.Message}");
+                dgInmobiliario.DataSource = inmobiliarios;
             }
         }
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-                try
-                {
-
-                    if (string.IsNullOrWhiteSpace(tbInmueble_Id.Text) ||
-                        string.IsNullOrWhiteSpace(tbDireccion.Text) ||
-                        string.IsNullOrWhiteSpace(tbPagoMensual.Text)||
-                        string.IsNullOrWhiteSpace(tbArea.Text)||
-                        string.IsNullOrWhiteSpace(tbNumeroHabitaciones.Text)||
-                        string.IsNullOrWhiteSpace(cbTipoInmueble.Text)||
-                        string.IsNullOrWhiteSpace(tbDescripcion.Text)||
-                        string.IsNullOrWhiteSpace(tbAgregado.Text)||
-                        string.IsNullOrWhiteSpace(tbIdUsuario.Text)||
-                        string.IsNullOrWhiteSpace(tbEstado.Text))
-
-                {
-                        MessageBox.Show("Todos los campos son obligatorios.");
-                        return;
-                    }
-
-
-                    var nuevoInmobiliario = new Inmobiliario
-                    {
-                       
-                        Direccion = tbDireccion.Text,
-                        TipoPropiedad = cbTipoInmueble.Text,
-                        Area = tbArea.Text,
-                        Num_Habitaciones = tbNumeroHabitaciones.Text,
-                        Descripcion = tbDescripcion.Text,
-                        IdUsuario = tbIdUsuario.Text,
-                        Estado= tbEstado.Text,
-                        Eliminado = "0"
-                    };
-
-
-                    _dbContext.Propiedad.Add(nuevoInmobiliario);
-                    _dbContext.SaveChanges();
-
-                    MessageBox.Show("Inmobiliaria registrada correctamente.");
-                    LimpiarCampos();
-                    CargarInmobiliaria();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error al registrar: {ex.Message}");
-                }
-           
+            if(tbArea.Text==""|| cbTipo.Text == "" || tbDireccion.Text == "" || tbNumeroHabitaciones.Text == "" || tbDireccion.Text == "")
+            {
+                MessageBox.Show("Rellene todas las casillas");
+                return;
+            }
         }
 
         private void LimpiarCampos()
@@ -154,20 +83,20 @@ namespace Presentacion
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            LimpiarCampos();
-        }
-
-        private void LimpiarCampos()
-        {
-            tbInmueble_Id.Clear();
             tbDireccion.Clear();
             tbPagoMensual.Clear();
             tbArea.Clear();
             tbNumeroHabitaciones.Clear();
             tbDescripcion.Clear();
-            tbAgregado.Clear();
-            tbIdUsuario.Clear();
-            tbEstado.Clear();
+        }
+
+        private void LimpiarCampos()
+        {
+            tbDireccion.Clear();
+            tbPagoMensual.Clear();
+            tbArea.Clear();
+            tbNumeroHabitaciones.Clear();
+            tbDescripcion.Clear();
         }
 
 
@@ -180,19 +109,6 @@ namespace Presentacion
         {
 
         }
-        private void label7_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void FormInmobilario_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tbInmueble_Id_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
