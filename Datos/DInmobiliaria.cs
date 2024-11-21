@@ -15,13 +15,11 @@ namespace Datos
             {
                 using (var context = new BDEFEntities())
                 {
-                    var existeID = context.Propiedad.Any(i => i.IdPropiedad == propiedad.IdPropiedad && i.Eliminado == "0");
-                    if (existeID)
+                    var existingProperty = context.Propiedad.FirstOrDefault(p => p.IdPropiedad == propiedad.IdPropiedad);
+                    if (existingProperty != null)
                     {
-                        return "Error: El ID ya está registrado.";
+                        return "Error: Ya existe una propiedad con el mismo ID.";
                     }
-                    propiedad.Eliminado = "0";
-                    propiedad.Estado = "Activo";
                     context.Propiedad.Add(propiedad);
                     context.SaveChanges();
                 }
@@ -33,19 +31,21 @@ namespace Datos
             }
         }
         //Listar Todo (activos)
-        public List<Propiedad> ListarActivos()
+        public List<Propiedad> ListarTodoActivo()
         {
+            List<Propiedad> propiedad = new List<Propiedad>();
             try
             {
                 using (var context = new BDEFEntities())
                 {
-                    return context.Propiedad.Where(i => i.Eliminado == "0").ToList();
+                    propiedad = context.Propiedad.Where(i => i.Estado.Equals("A")).ToList();
                 }
+                return propiedad;
+
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                return new List<Propiedad>();
+                return propiedad;
             }
         }
 
@@ -57,11 +57,17 @@ namespace Datos
                 using (var context = new BDEFEntities())
                 {
                     var propiedad = context.Propiedad.Find(IdPropiedad);
-                    if (propiedad == null) return "Error: Propiedad no encontrada.";
-                    propiedad.Eliminado = "1";
-                    context.SaveChanges();
+                    if (propiedad != null)
+                    {
+                        propiedad.Estado = "I"; // Cambia el estado a "I" para inactivo
+                        context.SaveChanges();
+                        return "Propiedad eliminada";
+                    }
+                    else
+                    {
+                        return "Propiedad no encontrada";
+                    }
                 }
-                return "Propiedad eliminada correctamente";
             }
             catch (Exception ex)
             {
@@ -76,18 +82,15 @@ namespace Datos
             {
                 using (var context = new BDEFEntities())
                 {
-                    var propiedadExistente = context.Propiedad.Find(propiedad.IdPropiedad);
-                    if (propiedadExistente == null) return "Error: Propiedad no encontrada.";
-
-                    propiedadExistente.Direccion = propiedad.Direccion;
-                    propiedadExistente.TipoPropiedad = propiedad.TipoPropiedad;
-                    propiedadExistente.Area = propiedad.Area;
-                    propiedadExistente.Num_Habitaciones = propiedad.Num_Habitaciones;
-                    propiedadExistente.Descripcion = propiedad.Descripcion;
-                    propiedadExistente.IdUsuario = propiedad.IdUsuario;
-                    propiedadExistente.Estado = propiedad.Estado;
-
-
+                    
+                    Propiedad propiedadTemp = context.Propiedad.Find(propiedad.IdPropiedad);
+                    propiedadTemp.Direccion = propiedad.Direccion;
+                    propiedadTemp.TipoPropiedad = propiedad.TipoPropiedad;
+                    propiedadTemp.Area = propiedad.Area;
+                    propiedadTemp.Num_Habitaciones = propiedad.Num_Habitaciones;
+                    propiedadTemp.Descripcion = propiedad.Descripcion;
+                    propiedadTemp.IdUsuario = propiedad.IdUsuario;
+                    propiedadTemp.Estado = propiedad.Estado;
                     context.SaveChanges();
                 }
                 return "Propiedad modificada correctamente";
