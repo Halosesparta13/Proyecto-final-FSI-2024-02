@@ -9,26 +9,41 @@ namespace Negocio
 {
     public class NInmobiliaria
     {
-        private DInmobiliaria idInmobiliaria = new DInmobiliaria();
+        private DInmobiliaria dInmobiliaria = new DInmobiliaria();
 
+
+        //Registrar
         public string Registrar(Propiedad propiedad)
         {
-            return idInmobiliaria.Registrar(propiedad);
+            propiedad.Estado = "A";
+            return dInmobiliaria.Registrar(propiedad);
         }
 
-        public List<Propiedad> ListarActivos()
+        //Listar todos los activos
+        public List<Propiedad> ListarTodoActivo()
         {
-            return idInmobiliaria.ListarActivos();
+            return dInmobiliaria.ListarTodoActivo();
         }
 
+        //Eliminar
         public string Eliminar(int idPropiedad)
         {
-            return idInmobiliaria.Eliminar(idPropiedad);
+            {
+
+                if (idPropiedad <= 0)
+                {
+                    return "El ID de la propiedad es inválido.";
+                }
+
+
+                return dInmobiliaria.Eliminar(idPropiedad);
+            }
         }
 
+        //Modificar
         public string Modificar(Propiedad propiedad)
         {
-            return idInmobiliaria.Modificar(propiedad);
+            return dInmobiliaria.Modificar(propiedad);
         }
     }
 }
