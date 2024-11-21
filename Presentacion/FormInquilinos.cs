@@ -48,6 +48,7 @@ namespace Presentacion
                 MessageBox.Show($"Error al cargar los datos: {ex.Message}");
             }
         }
+
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
             try
