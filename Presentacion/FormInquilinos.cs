@@ -135,5 +135,9 @@ namespace Presentacion
             dpFechaFin.Value = DateTime.Now;
         }
 
+        private void FormInquilinos_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
