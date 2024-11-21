@@ -11,6 +11,7 @@ namespace Presentacion
     {
 
         private Usuario usuario; // Almacena el objeto propietario
+        private BDEFEntities _dbContext;
         public FormInmobilario(Usuario usuario)
         {
             InitializeComponent();
@@ -19,6 +20,7 @@ namespace Presentacion
         private void CargarInmobiliaria()
         {
             throw new NotImplementedException();
+           // MostrarImmobiliarios(usuario.ListarTodoActivo());
         }
 
         private void MostrarImmobiliarios(List<Inmobiliario> inmobiliarios)
@@ -90,15 +92,6 @@ namespace Presentacion
             tbDescripcion.Clear();
         }
 
-        private void LimpiarCampos()
-        {
-            tbDireccion.Clear();
-            tbPagoMensual.Clear();
-            tbArea.Clear();
-            tbNumeroHabitaciones.Clear();
-            tbDescripcion.Clear();
-        }
-
 
         private void btnRegistrarInquilinos_Click(object sender, EventArgs e)
         {
@@ -110,5 +103,9 @@ namespace Presentacion
 
         }
 
+        private void FormInmobilario_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

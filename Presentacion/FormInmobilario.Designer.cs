@@ -57,9 +57,10 @@
             // 
             // btnReportes
             // 
-            this.btnReportes.Location = new System.Drawing.Point(548, 237);
+            this.btnReportes.Location = new System.Drawing.Point(616, 296);
+            this.btnReportes.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnReportes.Name = "btnReportes";
-            this.btnReportes.Size = new System.Drawing.Size(107, 48);
+            this.btnReportes.Size = new System.Drawing.Size(120, 60);
             this.btnReportes.TabIndex = 78;
             this.btnReportes.Text = "Ver Reportes";
             this.btnReportes.UseVisualStyleBackColor = true;
@@ -67,9 +68,10 @@
             // 
             // btnRegistrarInquilinos
             // 
-            this.btnRegistrarInquilinos.Location = new System.Drawing.Point(435, 237);
+            this.btnRegistrarInquilinos.Location = new System.Drawing.Point(489, 296);
+            this.btnRegistrarInquilinos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnRegistrarInquilinos.Name = "btnRegistrarInquilinos";
-            this.btnRegistrarInquilinos.Size = new System.Drawing.Size(107, 48);
+            this.btnRegistrarInquilinos.Size = new System.Drawing.Size(120, 60);
             this.btnRegistrarInquilinos.TabIndex = 75;
             this.btnRegistrarInquilinos.Text = "Registrar Inquilinos";
             this.btnRegistrarInquilinos.UseVisualStyleBackColor = true;
@@ -77,9 +79,10 @@
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(323, 237);
+            this.btnLimpiar.Location = new System.Drawing.Point(363, 296);
+            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(107, 48);
+            this.btnLimpiar.Size = new System.Drawing.Size(120, 60);
             this.btnLimpiar.TabIndex = 74;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
@@ -87,9 +90,10 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(210, 237);
+            this.btnEliminar.Location = new System.Drawing.Point(236, 296);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(107, 48);
+            this.btnEliminar.Size = new System.Drawing.Size(120, 60);
             this.btnEliminar.TabIndex = 73;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
@@ -97,9 +101,10 @@
             // 
             // btnRegistrar
             // 
-            this.btnRegistrar.Location = new System.Drawing.Point(97, 237);
+            this.btnRegistrar.Location = new System.Drawing.Point(109, 296);
+            this.btnRegistrar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(107, 48);
+            this.btnRegistrar.Size = new System.Drawing.Size(120, 60);
             this.btnRegistrar.TabIndex = 72;
             this.btnRegistrar.Text = "Registrar";
             this.btnRegistrar.UseVisualStyleBackColor = true;
@@ -112,102 +117,109 @@
             "Casa",
             "Departamento",
             "Terreno"});
-            this.cbTipo.Location = new System.Drawing.Point(511, 121);
+            this.cbTipo.Location = new System.Drawing.Point(575, 151);
+            this.cbTipo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbTipo.Name = "cbTipo";
-            this.cbTipo.Size = new System.Drawing.Size(172, 24);
+            this.cbTipo.Size = new System.Drawing.Size(193, 28);
             this.cbTipo.TabIndex = 71;
             // 
             // cbTipoInmueble
             // 
             this.cbTipoInmueble.AutoSize = true;
-            this.cbTipoInmueble.Location = new System.Drawing.Point(426, 126);
+            this.cbTipoInmueble.Location = new System.Drawing.Point(479, 158);
             this.cbTipoInmueble.Name = "cbTipoInmueble";
-            this.cbTipoInmueble.Size = new System.Drawing.Size(62, 16);
+            this.cbTipoInmueble.Size = new System.Drawing.Size(74, 20);
             this.cbTipoInmueble.TabIndex = 70;
             this.cbTipoInmueble.Text = "Tipo Inm.";
             // 
             // btnCargarImagen
             // 
-            this.btnCargarImagen.Location = new System.Drawing.Point(734, 208);
+            this.btnCargarImagen.Location = new System.Drawing.Point(826, 260);
+            this.btnCargarImagen.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCargarImagen.Name = "btnCargarImagen";
-            this.btnCargarImagen.Size = new System.Drawing.Size(145, 48);
+            this.btnCargarImagen.Size = new System.Drawing.Size(163, 60);
             this.btnCargarImagen.TabIndex = 69;
             this.btnCargarImagen.Text = "Cargar Imagen";
             this.btnCargarImagen.UseVisualStyleBackColor = true;
             // 
             // tbDescripcion
             // 
-            this.tbDescripcion.Location = new System.Drawing.Point(511, 155);
+            this.tbDescripcion.Location = new System.Drawing.Point(575, 194);
+            this.tbDescripcion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbDescripcion.Name = "tbDescripcion";
-            this.tbDescripcion.Size = new System.Drawing.Size(172, 22);
+            this.tbDescripcion.Size = new System.Drawing.Size(193, 26);
             this.tbDescripcion.TabIndex = 66;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(426, 159);
+            this.label4.Location = new System.Drawing.Point(479, 199);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(79, 16);
+            this.label4.Size = new System.Drawing.Size(92, 20);
             this.label4.TabIndex = 65;
             this.label4.Text = "Descripción";
             // 
             // tbPagoMensual
             // 
-            this.tbPagoMensual.Location = new System.Drawing.Point(227, 155);
+            this.tbPagoMensual.Location = new System.Drawing.Point(255, 194);
+            this.tbPagoMensual.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbPagoMensual.Name = "tbPagoMensual";
-            this.tbPagoMensual.Size = new System.Drawing.Size(172, 22);
+            this.tbPagoMensual.Size = new System.Drawing.Size(193, 26);
             this.tbPagoMensual.TabIndex = 64;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(90, 158);
+            this.label3.Location = new System.Drawing.Point(101, 198);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(94, 16);
+            this.label3.Size = new System.Drawing.Size(110, 20);
             this.label3.TabIndex = 63;
             this.label3.Text = "Pago Mensual";
             // 
             // tbDireccion
             // 
-            this.tbDireccion.Location = new System.Drawing.Point(227, 122);
+            this.tbDireccion.Location = new System.Drawing.Point(255, 152);
+            this.tbDireccion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbDireccion.Name = "tbDireccion";
-            this.tbDireccion.Size = new System.Drawing.Size(172, 22);
+            this.tbDireccion.Size = new System.Drawing.Size(193, 26);
             this.tbDireccion.TabIndex = 62;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(90, 126);
+            this.label2.Location = new System.Drawing.Point(101, 158);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 16);
+            this.label2.Size = new System.Drawing.Size(75, 20);
             this.label2.TabIndex = 61;
             this.label2.Text = "Dirección";
             // 
             // dgInmobiliario
             // 
             this.dgInmobiliario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgInmobiliario.Location = new System.Drawing.Point(82, 308);
+            this.dgInmobiliario.Location = new System.Drawing.Point(92, 385);
+            this.dgInmobiliario.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgInmobiliario.Name = "dgInmobiliario";
             this.dgInmobiliario.RowHeadersWidth = 51;
             this.dgInmobiliario.RowTemplate.Height = 24;
-            this.dgInmobiliario.Size = new System.Drawing.Size(815, 214);
+            this.dgInmobiliario.Size = new System.Drawing.Size(917, 268);
             this.dgInmobiliario.TabIndex = 59;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(342, 9);
+            this.label7.Location = new System.Drawing.Point(385, 11);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(210, 29);
+            this.label7.Size = new System.Drawing.Size(244, 32);
             this.label7.TabIndex = 58;
             this.label7.Text = "Registro Inmueble";
             // 
             // pictureBoxInmobiliario
             // 
-            this.pictureBoxInmobiliario.Location = new System.Drawing.Point(718, 53);
+            this.pictureBoxInmobiliario.Location = new System.Drawing.Point(808, 66);
+            this.pictureBoxInmobiliario.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBoxInmobiliario.Name = "pictureBoxInmobiliario";
-            this.pictureBoxInmobiliario.Size = new System.Drawing.Size(180, 139);
+            this.pictureBoxInmobiliario.Size = new System.Drawing.Size(202, 174);
             this.pictureBoxInmobiliario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxInmobiliario.TabIndex = 60;
             this.pictureBoxInmobiliario.TabStop = false;
@@ -215,49 +227,52 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(426, 189);
+            this.label1.Location = new System.Drawing.Point(479, 236);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(36, 16);
+            this.label1.Size = new System.Drawing.Size(43, 20);
             this.label1.TabIndex = 79;
             this.label1.Text = "Área";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(91, 186);
+            this.label8.Location = new System.Drawing.Point(102, 232);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(123, 16);
+            this.label8.Size = new System.Drawing.Size(145, 20);
             this.label8.TabIndex = 80;
             this.label8.Text = "N# de habitaciones";
             // 
             // tbArea
             // 
-            this.tbArea.Location = new System.Drawing.Point(511, 186);
+            this.tbArea.Location = new System.Drawing.Point(575, 232);
+            this.tbArea.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbArea.Name = "tbArea";
-            this.tbArea.Size = new System.Drawing.Size(172, 22);
+            this.tbArea.Size = new System.Drawing.Size(193, 26);
             this.tbArea.TabIndex = 81;
             // 
             // tbNumeroHabitaciones
             // 
-            this.tbNumeroHabitaciones.Location = new System.Drawing.Point(227, 183);
+            this.tbNumeroHabitaciones.Location = new System.Drawing.Point(255, 229);
+            this.tbNumeroHabitaciones.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbNumeroHabitaciones.Name = "tbNumeroHabitaciones";
-            this.tbNumeroHabitaciones.Size = new System.Drawing.Size(172, 22);
+            this.tbNumeroHabitaciones.Size = new System.Drawing.Size(193, 26);
             this.tbNumeroHabitaciones.TabIndex = 82;
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Presentacion.Properties.Resources.barra_propietarios;
-            this.pictureBox2.Location = new System.Drawing.Point(-1, -30);
+            this.pictureBox2.Location = new System.Drawing.Point(-1, -38);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(67, 576);
+            this.pictureBox2.Size = new System.Drawing.Size(75, 720);
             this.pictureBox2.TabIndex = 87;
             this.pictureBox2.TabStop = false;
             // 
             // FormInmobilario
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(926, 532);
+            this.ClientSize = new System.Drawing.Size(1042, 665);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.tbNumeroHabitaciones);
             this.Controls.Add(this.tbArea);
@@ -280,8 +295,10 @@
             this.Controls.Add(this.pictureBoxInmobiliario);
             this.Controls.Add(this.dgInmobiliario);
             this.Controls.Add(this.label7);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FormInmobilario";
             this.Text = "FormInmobilario";
+            this.Load += new System.EventHandler(this.FormInmobilario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgInmobiliario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInmobiliario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

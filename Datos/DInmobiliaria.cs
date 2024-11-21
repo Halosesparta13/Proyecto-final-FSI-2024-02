@@ -38,10 +38,8 @@ namespace Datos
             {
                 using (var context = new BDEFEntities())
                 {
-                    propiedad = context.Propiedad.Where(i => i.Estado.Equals("A")).ToList();
+                    return context.Propiedad.Where(i => i.Estado == "A").ToList();
                 }
-                return propiedad;
-
             }
             catch (Exception ex)
             {
