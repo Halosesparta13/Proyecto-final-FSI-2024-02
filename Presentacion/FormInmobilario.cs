@@ -3,27 +3,23 @@ using Negocio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 
 namespace Presentacion
 {
     public partial class FormInmobilario : Form
     {
-
-        private Usuario usuario; // Almacena el objeto propietario
-        private BDEFEntities _dbContext;
+        private NInmobiliaria nInmobiliaria = new NInmobiliaria();
+        private Usuario usuario; // Almacena el objeto PROPIETARIO
         public FormInmobilario(Usuario usuario)
         {
             InitializeComponent();
             this.usuario = usuario;
-        }
-        private void CargarInmobiliaria()
-        {
-            throw new NotImplementedException();
-           // MostrarImmobiliarios(usuario.ListarTodoActivo());
+            MostrarImmobiliarios(nInmobiliaria.ListarTodoActivo());
         }
 
-        private void MostrarImmobiliarios(List<Inmobiliario> inmobiliarios)
+        private void MostrarImmobiliarios(List<Propiedad> inmobiliarios)
         {
             dgInmobiliario.DataSource = null;
             if(inmobiliarios.Count == 0)
@@ -38,49 +34,70 @@ namespace Presentacion
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            if(tbArea.Text==""|| cbTipo.Text == "" || tbDireccion.Text == "" || tbNumeroHabitaciones.Text == "" || tbDireccion.Text == "")
+            //Validaciones
+            if(tbArea.Text==""||tbDescripcion.Text==""||tbDireccion.Text==""||cbTipo.Text==""||tbNumeroHabitaciones.Text==""||tbPagoMensual.Text=="")
             {
-                MessageBox.Show("Rellene todas las casillas");
+                MessageBox.Show("Rellene todos los campos");
                 return;
             }
-        }
-
-        private void LimpiarCampos()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
+            decimal MontoMensual = 0;
+            double area = 0;
+            int numHabitaciones = 0;
             try
             {
-                if (dgInmobiliario.SelectedRows.Count == 0)
+                MontoMensual = decimal.Parse(tbPagoMensual.Text);
+                // Verificar si el monto es positivo
+                if (MontoMensual <= 0)
                 {
-                    MessageBox.Show("Selecciona una propiedad para eliminar.");
+                    MessageBox.Show("El Pago Mensual debe ser un valor positivo.");
                     return;
                 }
-
-
-                int idPropiedad = Convert.ToInt32(dgInmobiliario.SelectedRows[0].Cells["IdPropiedad"].Value);
-
-
-                var propiedad = _dbContext.Propiedad.FirstOrDefault(i => i.IdPropiedad == idPropiedad);
-                if (propiedad != null)
+                area = double.Parse(tbArea.Text);
+                if(area <= 0)
                 {
-                    propiedad.Eliminado = "1";
-                    _dbContext.SaveChanges();
-                    MessageBox.Show("Propiedad eliminada correctamente.");
-                    CargarInmobiliaria();
+                    MessageBox.Show("El area debe de ser mayor");
+                    return;
                 }
-                else
+                numHabitaciones = 0;
+                if(numHabitaciones <= 0)
                 {
-                    MessageBox.Show("No se encontró la propiedadd.");
+                    MessageBox.Show("El numero de habitaciones debe de ser mayor a 0");
+                    return;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al eliminar: {ex.Message}");
+                MessageBox.Show("Ingresa un valor valido en la casilla Pago Mensual ");
+                Console.WriteLine(ex.Message);
+                return;
             }
+
+            //Creación de propiedad
+            Propiedad propiedad = new Propiedad()
+            {
+                Direccion = tbDireccion.Text,
+                Descripcion = tbDescripcion.Text,
+                Area = area,
+                Num_Habitaciones = numHabitaciones,
+                TipoPropiedad = cbTipo.Text
+            };
+
+            //Registrar
+            string mensaje = nInmobiliaria.Registrar(propiedad);
+            MessageBox.Show(mensaje);
+            MostrarImmobiliarios(nInmobiliaria.ListarTodoActivo());
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (dgInmobiliario.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Seleccione un registro");
+                return;
+            }
+            int id = int.Parse(dgInmobiliario.SelectedRows[0].Cells[0].Value.ToString());
+            string mensaje = nInmobiliaria.Eliminar(id);
+            MessageBox.Show(mensaje);
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -95,17 +112,16 @@ namespace Presentacion
 
         private void btnRegistrarInquilinos_Click(object sender, EventArgs e)
         {
-
+            FormInquilinos form = new FormInquilinos();
+            form.Show();
         }
 
         private void btnReportes_Click(object sender, EventArgs e)
         {
-
+            FormReportes form = new FormReportes();
+            form.Show();
         }
 
-        private void FormInmobilario_Load(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

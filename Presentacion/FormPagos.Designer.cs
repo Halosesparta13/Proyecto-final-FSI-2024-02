@@ -228,7 +228,6 @@
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormPagos";
             this.Text = "FormPagos";
-            this.Load += new System.EventHandler(this.FormPagos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgPagos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

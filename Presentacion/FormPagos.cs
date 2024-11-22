@@ -38,15 +38,6 @@ namespace Presentacion
                 dgPagos.DataSource = pagos; 
             }
         }
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FormPagos_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnPagar_Click(object sender, EventArgs e)
         {
@@ -66,7 +57,7 @@ namespace Presentacion
                 {
                     NombrePropiedad = tbNombrePropiedad.Text,
                     NombreInquilino = tbNombre.Text,
-                    Monto = decimal.Parse(tbMonto.Text),
+                    Monto = double.Parse(tbMonto.Text),
                     MetodoPago = cmbMetodosPago.SelectedItem.ToString(),
                     Estado = tbEstado.Text,
                     FechaPago = dpFecha.Value
