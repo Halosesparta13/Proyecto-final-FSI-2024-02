@@ -50,12 +50,10 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.dgPropietarios = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgPropietarios)).BeginInit();
             this.SuspendLayout();
             // 
             // label8
@@ -274,22 +272,11 @@
             this.pictureBox2.TabIndex = 43;
             this.pictureBox2.TabStop = false;
             // 
-            // dgPropietarios
-            // 
-            this.dgPropietarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgPropietarios.Location = new System.Drawing.Point(89, 301);
-            this.dgPropietarios.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgPropietarios.Name = "dgPropietarios";
-            this.dgPropietarios.RowHeadersWidth = 51;
-            this.dgPropietarios.RowTemplate.Height = 24;
-            this.dgPropietarios.Size = new System.Drawing.Size(858, 249);
-            this.dgPropietarios.TabIndex = 20;
-            // 
             // FormRegistroPropietario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(966, 560);
+            this.ClientSize = new System.Drawing.Size(966, 296);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox2);
@@ -298,7 +285,6 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnRegistrar);
-            this.Controls.Add(this.dgPropietarios);
             this.Name = "FormRegistroPropietario";
             this.Text = "FormPropietarios";
             this.groupBox1.ResumeLayout(false);
@@ -307,7 +293,6 @@
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgPropietarios)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -337,6 +322,5 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.DataGridView dgPropietarios;
     }
 }

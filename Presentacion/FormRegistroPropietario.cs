@@ -18,8 +18,9 @@ namespace Presentacion
         public FormRegistroPropietario()
         {
             InitializeComponent();
-            MostrarPropietarios(nUsuario.ListarTodo());
+            //MostrarPropietarios(nUsuario.ListarTodo());
         }
+        /*
 
         private void MostrarPropietarios(List<Usuario> usuarios)
         {
@@ -32,7 +33,7 @@ namespace Presentacion
             {
                 dgPropietarios.DataSource = usuarios;
             }
-        }
+        }*/
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
@@ -81,6 +82,7 @@ namespace Presentacion
                 UserName = username,
                 Password = passwoard,
                 Rol = "Propietario",
+                Estado = "Activo",
                 NombreCompleto = tbNombreCompleto.Text,
                 CorreoElectronico = tbCorreo.Text,
                 DNI = tbDNI.Text,
@@ -92,7 +94,7 @@ namespace Presentacion
             string mensaje = nUsuario.Registrar(usuario);
             MessageBox.Show(mensaje);
 
-            MostrarPropietarios(nUsuario.ListarTodo());
+            //MostrarPropietarios(nUsuario.ListarTodo());
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)

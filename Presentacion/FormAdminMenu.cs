@@ -120,6 +120,7 @@ namespace Presentacion
             int id = int.Parse(dgUsuario.SelectedRows[0].Cells[0].Value.ToString());
             string mensaje = nUsuario.EliminarLogico(id);
             MessageBox.Show(mensaje);
+            MostrarUsuarios(nUsuario.ListarTodo());
         }
         private void btnModificar_Click(object sender, EventArgs e)
         {
@@ -203,6 +204,7 @@ namespace Presentacion
             int id = int.Parse(dgUsuario.SelectedRows[0].Cells[0].Value.ToString());
             string mensaje = nUsuario.EliminadoFisico(id);
             MessageBox.Show(mensaje);
+            MostrarUsuarios(nUsuario.ListarTodo());
         }
     }
 }

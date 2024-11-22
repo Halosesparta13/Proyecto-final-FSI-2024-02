@@ -77,10 +77,11 @@ namespace Presentacion
             Propiedad propiedad = new Propiedad()
             {
                 Direccion = tbDireccion.Text,
-                Descripcion = tbDescripcion.Text,
+                TipoPropiedad = cbTipo.Text,
                 Area = area,
                 Num_Habitaciones = numHabitaciones,
-                TipoPropiedad = cbTipo.Text
+                Descripcion = tbDescripcion.Text,
+                IdUsuario = usuario.IdUsuario,
             };
 
             //Registrar
