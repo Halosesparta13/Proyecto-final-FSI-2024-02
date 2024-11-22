@@ -1,4 +1,5 @@
 ﻿using Datos;
+using Negocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,105 +15,120 @@ namespace Presentacion
 {
     public partial class FormInquilinos : Form
     {
-        private BDEFEntities _dbContext;
+        private NInquilino nInquilino = new NInquilino();
         public FormInquilinos()
         {
             InitializeComponent();
-            _dbContext = new BDEFEntities(); 
-            CargarInquilinos(); 
+            
         }
 
-        private void CargarInquilinos()
+        private void CargarInquilinos(List<Inquilino> ListarActivos)
         {
-            try
+            dgInquilinos.DataSource = null;
+            if (ListarActivos.Count == 0)
             {
-                
-                var inquilinos = _dbContext.Inquilino
-                    .Where(i => i.Eliminado != "1")
-                    .Select(i => new
-                    {
-                        i.IdInquilino,
-                        i.NombreCompletoInquilino,
-                        i.Telefono,
-                        i.CorreoElectronicoInquilino,
-                        i.DNI,
-                        i.Estado
-                    })
-                    .ToList();
-
-                
-                dgInquilinos.DataSource = inquilinos;
+                return;
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show($"Error al cargar los datos: {ex.Message}");
+                dgInquilinos.DataSource = ListarActivos;
             }
         }
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            try
+            string nombreCompletoInquilino = tbNombreCompleto.Text;
+            string telefono = tbCelular.Text;
+            string correoElectronicoInquilino = tbCorreo.Text;
+            string dni = tbDNI.Text;
+            int idPropiedad = 1; // esta por defecto para probar se tiene que modificar 
+            string estado = "Activo";
+            string eliminado = "0";
+
+            // Validación de campos vacíos
+            if (string.IsNullOrWhiteSpace(nombreCompletoInquilino) ||
+                string.IsNullOrWhiteSpace(telefono) ||
+                string.IsNullOrWhiteSpace(correoElectronicoInquilino) ||
+                string.IsNullOrWhiteSpace(dni))
             {
-                
-                if (string.IsNullOrWhiteSpace(tbNombreCompleto.Text) ||
-                    string.IsNullOrWhiteSpace(tbDNI.Text) ||
-                    string.IsNullOrWhiteSpace(tbCelular.Text))
-                {
-                    MessageBox.Show("Todos los campos son obligatorios.");
-                    return;
-                }
-
-                
-                var nuevoInquilino = new Inquilino
-                {
-                    NombreCompletoInquilino = tbNombreCompleto.Text,
-                    Telefono = tbCelular.Text,
-                    CorreoElectronicoInquilino = tbCorreo.Text,
-                    DNI = tbDNI.Text,
-                    IdPropiedad = 1, 
-                    Estado = "Activo",
-                    Eliminado = "0"
-                };
-
-                
-                _dbContext.Inquilino.Add(nuevoInquilino);
-                _dbContext.SaveChanges();
-
-                MessageBox.Show("Inquilino registrado correctamente.");
-                LimpiarCampos();
-                CargarInquilinos(); 
+                MessageBox.Show("Rellene todas las casillas.");
+                return;
             }
-            catch (Exception ex)
+
+            // Validación de longitud del DNI
+            if (dni.Length != 8 || !dni.All(char.IsDigit))
             {
-                MessageBox.Show($"Error al registrar: {ex.Message}");
+                MessageBox.Show("El DNI debe contener 8 dígitos numéricos.");
+                return;
             }
+
+            // Validación del número de celular
+            if (telefono.Length < 9 || !telefono.All(char.IsDigit))
+            {
+                MessageBox.Show("El número de celular debe tener al menos 9 dígitos y solo contener números.");
+                return;
+            }
+
+            // Validación del formato de correo electrónico
+            if (!correoElectronicoInquilino.Contains("@") || !correoElectronicoInquilino.Contains("."))
+            {
+                MessageBox.Show("Ingrese un correo electrónico válido.");
+                return;
+            }
+
+            // Crear objeto Inquilino
+            Inquilino inquilino = new Inquilino()
+            {
+                NombreCompletoInquilino = nombreCompletoInquilino,
+                Telefono = telefono,
+                CorreoElectronicoInquilino = correoElectronicoInquilino,
+                DNI = dni,
+                IdPropiedad = idPropiedad,
+                Estado = estado,
+                Eliminado = eliminado
+            };
+
+            // Llamar al método para registrar el inquilino
+            string mensaje = nInquilino.Registrar(inquilino);
+            MessageBox.Show(mensaje);
+
+            // Actualizar la lista de inquilinos
+            CargarInquilinos(nInquilino.ListarActivos());
+
+
+
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             try
             {
+                // Verificar que haya un inquilino seleccionado
                 if (dgInquilinos.SelectedRows.Count == 0)
                 {
                     MessageBox.Show("Selecciona un inquilino para eliminar.");
                     return;
                 }
 
-                
+                // Obtener el ID del inquilino seleccionado
                 int idInquilino = Convert.ToInt32(dgInquilinos.SelectedRows[0].Cells["IdInquilino"].Value);
 
-                
-                var inquilino = _dbContext.Inquilino.FirstOrDefault(i => i.IdInquilino == idInquilino);
-                if (inquilino != null)
+                // Confirmación antes de eliminar
+                DialogResult confirmacion = MessageBox.Show(
+                    "¿Está seguro de que desea eliminar este inquilino?",
+                    "Confirmar eliminación",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning
+                );
+
+                if (confirmacion == DialogResult.Yes)
                 {
-                    inquilino.Eliminado = "1"; 
-                    _dbContext.SaveChanges();
-                    MessageBox.Show("Inquilino eliminado correctamente.");
-                    CargarInquilinos(); 
-                }
-                else
-                {
-                    MessageBox.Show("No se encontró el inquilino.");
+                    // Llamar al método para eliminar en la capa de negocio
+                    string mensaje = nInquilino.EliminarLogico(idInquilino); // Método que realiza la eliminación lógica
+                    MessageBox.Show(mensaje);
+
+                    // Actualizar la lista de inquilinos activos
+                    CargarInquilinos(nInquilino.ListarActivos());
                 }
             }
             catch (Exception ex)
