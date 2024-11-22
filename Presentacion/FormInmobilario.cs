@@ -22,14 +22,14 @@ namespace Presentacion
 
         private void MostrarImmobiliarios(List<Propiedad> inmobiliarios)
         {
-            dgInmobiliario.DataSource = null;
+            dgPropiedad.DataSource = null;
             if(inmobiliarios.Count == 0)
             {
                 return;
             }
             else
             {
-                dgInmobiliario.DataSource = inmobiliarios;
+                dgPropiedad.DataSource = inmobiliarios;
             }
         }
 
@@ -78,6 +78,7 @@ namespace Presentacion
             {
                 Direccion = tbDireccion.Text,
                 TipoPropiedad = cbTipo.Text,
+                Estado = "Activo",
                 Area = area,
                 Num_Habitaciones = numHabitaciones,
                 Descripcion = tbDescripcion.Text,
@@ -92,12 +93,12 @@ namespace Presentacion
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (dgInmobiliario.SelectedRows.Count == 0)
+            if (dgPropiedad.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Seleccione un registro");
                 return;
             }
-            int id = int.Parse(dgInmobiliario.SelectedRows[0].Cells[0].Value.ToString());
+            int id = int.Parse(dgPropiedad.SelectedRows[0].Cells[0].Value.ToString());
             string mensaje = nInmobiliaria.Eliminar(id);
             MessageBox.Show(mensaje);
         }
@@ -123,12 +124,12 @@ namespace Presentacion
             FormReportes form = new FormReportes();
             form.Show();
         }
-
+        /*
         private void dgInmobiliario_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgInmobiliario.SelectedRows.Count > 0)
+            if (dgPropiedad.SelectedRows.Count > 0)
             {
-                var selectedRow = dgInmobiliario.SelectedRows[0];
+                var selectedRow = dgPropiedad.SelectedRows[0];
                 var imagePath = selectedRow.Cells["ImagePath"].Value as string;
 
                 if (!string.IsNullOrEmpty(imagePath) && System.IO.File.Exists(imagePath))
@@ -149,6 +150,6 @@ namespace Presentacion
                     pictureBoxInmobiliario.Image = null;
                 }
             }
-        }
+        }*/
     }
 }

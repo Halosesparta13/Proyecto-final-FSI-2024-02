@@ -15,10 +15,11 @@ namespace Datos
             {
                 using (var context = new BDEFEntities())
                 {
-                    var existingProperty = context.Propiedad.FirstOrDefault(p => p.IdPropiedad == propiedad.IdPropiedad);
-                    if (existingProperty != null)
+                    context.Configuration.LazyLoadingEnabled = false;
+                    var existePropiedad = context.Propiedad.Any(p => p.Direccion == propiedad.Direccion);
+                    if (existePropiedad)
                     {
-                        return "Error: Ya existe una propiedad con el mismo ID.";
+                        return "Error: Ya existe una propiedad con la misma dirección.";
                     }
                     context.Propiedad.Add(propiedad);
                     context.SaveChanges();
@@ -38,16 +39,17 @@ namespace Datos
             {
                 using (var context = new BDEFEntities())
                 {
-                    return context.Propiedad.Where(i => i.Estado == "A").ToList();
+                    return context.Propiedad.Where(i => i.Eliminado == "0").ToList();
                 }
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 return propiedad;
             }
         }
 
-        //Eliminar
+        //Eliminar Lógico
         public string Eliminar(int IdPropiedad)
         {
             try
@@ -57,7 +59,8 @@ namespace Datos
                     var propiedad = context.Propiedad.Find(IdPropiedad);
                     if (propiedad != null)
                     {
-                        propiedad.Estado = "I"; // Cambia el estado a "I" para inactivo
+                        propiedad.Estado = "Inactivo"; // Cambia el estado a "I" para inactivo
+                        propiedad.Eliminado = "1";
                         context.SaveChanges();
                         return "Propiedad eliminada";
                     }
@@ -87,11 +90,30 @@ namespace Datos
                     propiedadTemp.Area = propiedad.Area;
                     propiedadTemp.Num_Habitaciones = propiedad.Num_Habitaciones;
                     propiedadTemp.Descripcion = propiedad.Descripcion;
-                    propiedadTemp.IdUsuario = propiedad.IdUsuario;
+                    //propiedadTemp.IdUsuario = propiedad.IdUsuario;
                     propiedadTemp.Estado = propiedad.Estado;
                     context.SaveChanges();
                 }
                 return "Propiedad modificada correctamente";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
+        //Eliminar fisico
+        public string EliminadoFisico(int idPropiedad)
+        {
+            try
+            {
+                using (var context = new BDEFEntities())
+                {
+                    Propiedad propiedadTemp = context.Propiedad.Find(idPropiedad);
+                    context.Propiedad.Remove(propiedadTemp);
+                    context.SaveChanges();
+                }
+                return "Eliminación fisico correctamente";
             }
             catch (Exception ex)
             {

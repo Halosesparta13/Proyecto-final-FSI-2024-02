@@ -15,7 +15,7 @@ namespace Negocio
         //Registrar
         public string Registrar(Propiedad propiedad)
         {
-            propiedad.Estado = "A";
+            propiedad.Eliminado = "0";
             return dInmobiliaria.Registrar(propiedad);
         }
 
@@ -28,22 +28,17 @@ namespace Negocio
         //Eliminar
         public string Eliminar(int idPropiedad)
         {
-            {
-
-                if (idPropiedad <= 0)
-                {
-                    return "El ID de la propiedad es inválido.";
-                }
-
-
-                return dInmobiliaria.Eliminar(idPropiedad);
-            }
+            return dInmobiliaria.Eliminar(idPropiedad);
         }
 
         //Modificar
         public string Modificar(Propiedad propiedad)
         {
             return dInmobiliaria.Modificar(propiedad);
+        }
+        public string EliminadoFisico(int idPropiedad)
+        {
+            return dInmobiliaria.EliminadoFisico(idPropiedad);
         }
     }
 }

@@ -42,7 +42,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tbDireccion = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.dgInmobiliario = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBoxInmobiliario = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -50,9 +49,10 @@
             this.tbArea = new System.Windows.Forms.TextBox();
             this.tbNumeroHabitaciones = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgInmobiliario)).BeginInit();
+            this.dgPropiedad = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInmobiliario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgPropiedad)).BeginInit();
             this.SuspendLayout();
             // 
             // btnReportes
@@ -183,17 +183,6 @@
             this.label2.TabIndex = 61;
             this.label2.Text = "Dirección";
             // 
-            // dgInmobiliario
-            // 
-            this.dgInmobiliario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgInmobiliario.Location = new System.Drawing.Point(83, 291);
-            this.dgInmobiliario.Name = "dgInmobiliario";
-            this.dgInmobiliario.RowHeadersWidth = 51;
-            this.dgInmobiliario.RowTemplate.Height = 24;
-            this.dgInmobiliario.Size = new System.Drawing.Size(815, 214);
-            this.dgInmobiliario.TabIndex = 59;
-            this.dgInmobiliario.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgInmobiliario_CellContentClick);
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -254,11 +243,22 @@
             this.pictureBox2.TabIndex = 87;
             this.pictureBox2.TabStop = false;
             // 
+            // dgPropiedad
+            // 
+            this.dgPropiedad.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgPropiedad.Location = new System.Drawing.Point(93, 292);
+            this.dgPropiedad.Name = "dgPropiedad";
+            this.dgPropiedad.RowHeadersWidth = 51;
+            this.dgPropiedad.RowTemplate.Height = 24;
+            this.dgPropiedad.Size = new System.Drawing.Size(805, 236);
+            this.dgPropiedad.TabIndex = 88;
+            // 
             // FormInmobilario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(926, 552);
+            this.Controls.Add(this.dgPropiedad);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.tbNumeroHabitaciones);
             this.Controls.Add(this.tbArea);
@@ -279,13 +279,12 @@
             this.Controls.Add(this.tbDireccion);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBoxInmobiliario);
-            this.Controls.Add(this.dgInmobiliario);
             this.Controls.Add(this.label7);
             this.Name = "FormInmobilario";
             this.Text = "FormInmobilario";
-            ((System.ComponentModel.ISupportInitialize)(this.dgInmobiliario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInmobiliario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgPropiedad)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -308,12 +307,12 @@
         private System.Windows.Forms.TextBox tbDireccion;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBoxInmobiliario;
-        private System.Windows.Forms.DataGridView dgInmobiliario;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox tbArea;
         private System.Windows.Forms.TextBox tbNumeroHabitaciones;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.DataGridView dgPropiedad;
     }
 }
