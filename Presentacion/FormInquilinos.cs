@@ -26,38 +26,32 @@ namespace Presentacion
             MostrarInquilinos(nInquilino.ListarActivos());
             this.usuario = usuario;
             this.idInmueble = idInmueble;
-            //lblmonto_Total = nContrato.ListarTodo().Monto de pago
+            MostrarMontoPorInmueble(idInmueble);
         }
-
-        private void MostrarMontoTotal(List<Contrato> contratos)
-        {
-            
-        }
-
         private void MostrarInquilinos(List<Inquilino> ListarActivos)
         {
             dgInquilinos.DataSource = null;
             if (ListarActivos.Count == 0)
             {
-                lblNombre_Usuario.Text = $"¡Bienvenido {usuario.NombreCompleto}! | Fecha de último acceso {DateTime.Now}";
+                //lblNombre_Usuario.Text = $"¡Bienvenido {usuario.NombreCompleto}! | Fecha de último acceso {DateTime.Now}";
                 return;
             }
             else
             {
                 dgInquilinos.DataSource = ListarActivos;
-                lblNombre_Usuario.Text = $"¡Bienvenido {usuario.NombreCompleto}! | Fecha de último acceso {DateTime.Now}";
+                //lblNombre_Usuario.Text = $"¡Bienvenido {usuario.NombreCompleto}! | Fecha de último acceso {DateTime.Now}";
             }
         }
         private void MostrarMontoPorInmueble(int idInmueble)
         {
             try
             {
-                // Obtener todos los contratos desde la capa de datos
+                // Obtener todos los inmuebles desde la capa de datos
                 List<Propiedad> inmuebles = nInmobiliaria.ListarTodoActivo();
 
-                // Filtrar los contratos por el IdInmueble proporcionado
+                // Filtrar los inmuebles por el IdInmueble proporcionado
                 var inmueble = inmuebles.FirstOrDefault(i => i.IdPropiedad == idInmueble);
-                
+
                 // Validar que el inmueble exista
                 if (inmueble == null)
                 {
@@ -65,8 +59,8 @@ namespace Presentacion
                     return;
                 }
 
-                // Obtener el monto de pago del inmueble
-                decimal montoPago = inmueble.montoTotal;
+                // Obtener el monto de pago del inmueble, manejando valores nulos
+                decimal montoPago = inmueble.Monto ?? 0;
 
                 // Mostrar el monto en un label
                 lblmonto_Total.Text = $"Monto Total: {montoPago:C}";
@@ -76,6 +70,7 @@ namespace Presentacion
                 MessageBox.Show($"Error al obtener el monto total: {ex.Message}");
             }
         }
+
 
 
         private void btnRegistrar_Click(object sender, EventArgs e)

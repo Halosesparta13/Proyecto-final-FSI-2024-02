@@ -143,13 +143,14 @@ namespace Presentacion
                 Direccion = tbDireccion.Text,
                 TipoPropiedad = cbTipo.Text,
                 Estado = "Activo",
+                Monto = MontoMensual,
                 Area = area,
                 Num_Habitaciones = numHabitaciones,
                 Descripcion = tbDescripcion.Text,
                 IdUsuario = usuario.IdUsuario,
                 Contrato = new List<Contrato>(),
                 Image_Path = imageLocation,
-            }
+            };
 
             //Registrar
             string mensaje = nInmobiliaria.Registrar(propiedad);

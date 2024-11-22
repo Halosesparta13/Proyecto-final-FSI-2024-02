@@ -31,6 +31,7 @@ namespace Datos
         public string Eliminado { get; set; }
         public string Estado { get; set; }
         public string Image_Path { get; set; }
+        public Nullable<decimal> Monto { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contrato> Contrato { get; set; }
