@@ -16,10 +16,14 @@ namespace Presentacion
     public partial class FormInquilinos : Form
     {
         private NInquilino nInquilino = new NInquilino();
-        public FormInquilinos()
+        private Usuario usuario; // Almacena el objeto PROPIETARIO
+        private int idInmueble;
+        public FormInquilinos(Usuario usuario, int idInmueble)
         {
             InitializeComponent();
             MostrarInquilinos(nInquilino.ListarActivos());
+            this.usuario = usuario;
+            this.idInmueble = idInmueble;
         }
 
         private void MostrarInquilinos(List<Inquilino> ListarActivos)
@@ -41,7 +45,7 @@ namespace Presentacion
             string telefono = tbCelular.Text;
             string correoElectronicoInquilino = tbCorreo.Text;
             string dni = tbDNI.Text;
-            int idPropiedad = 1; // esta por defecto para probar se tiene que modificar 
+            //int idPropiedad = 1; // esta por defecto para probar se tiene que modificar NO VA
             string estado = "Activo";
             string eliminado = "0";
 
@@ -83,7 +87,7 @@ namespace Presentacion
                 Telefono = telefono,
                 CorreoElectronicoInquilino = correoElectronicoInquilino,
                 DNI = dni,
-                IdPropiedad = idPropiedad,
+                IdPropiedad = idInmueble,
                 Estado = estado,
                 Eliminado = eliminado
             };

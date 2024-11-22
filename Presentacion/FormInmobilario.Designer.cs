@@ -34,7 +34,6 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.btnCargarImagen = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
             this.pictureBoxInmobiliario = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.dgPropiedad = new System.Windows.Forms.DataGridView();
@@ -52,6 +51,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tbDireccion = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInmobiliario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgPropiedad)).BeginInit();
@@ -116,16 +116,6 @@
             this.btnCargarImagen.TabIndex = 69;
             this.btnCargarImagen.Text = "Cargar Imagen";
             this.btnCargarImagen.UseVisualStyleBackColor = true;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(330, 27);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(227, 29);
-            this.label7.TabIndex = 58;
-            this.label7.Text = "Registro Inmueble";
             // 
             // pictureBoxInmobiliario
             // 
@@ -286,11 +276,22 @@
             this.label2.TabIndex = 91;
             this.label2.Text = "Dirección";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft YaHei", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(322, 21);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(276, 37);
+            this.label5.TabIndex = 91;
+            this.label5.Text = "Registro Inmueble";
+            // 
             // FormInmobilario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(926, 529);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lbNombreUsuario);
             this.Controls.Add(this.dgPropiedad);
@@ -302,7 +303,6 @@
             this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.btnCargarImagen);
             this.Controls.Add(this.pictureBoxInmobiliario);
-            this.Controls.Add(this.label7);
             this.Name = "FormInmobilario";
             this.Text = "FormInmobilario";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInmobiliario)).EndInit();
@@ -324,7 +324,6 @@
         private System.Windows.Forms.Button btnRegistrar;
         private System.Windows.Forms.Button btnCargarImagen;
         private System.Windows.Forms.PictureBox pictureBoxInmobiliario;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.DataGridView dgPropiedad;
         private System.Windows.Forms.Label lbNombreUsuario;
@@ -341,5 +340,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label cbTipoInmueble;
         private System.Windows.Forms.TextBox tbDescripcion;
+        private System.Windows.Forms.Label label5;
     }
 }

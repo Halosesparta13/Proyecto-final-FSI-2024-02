@@ -119,7 +119,13 @@ namespace Presentacion
 
         private void btnRegistrarInquilinos_Click(object sender, EventArgs e)
         {
-            FormInquilinos form = new FormInquilinos();
+            if(dgPropiedad.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Seleccione un registro");
+                return;
+            }
+            int id = int.Parse(dgPropiedad.SelectedRows[0].Cells[0].Value.ToString());
+            FormInquilinos form = new FormInquilinos(usuario,id);
             form.Show();
         }
 
