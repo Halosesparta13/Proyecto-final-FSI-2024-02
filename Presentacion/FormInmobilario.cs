@@ -2,6 +2,7 @@
 using Negocio;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows.Forms;
@@ -122,6 +123,31 @@ namespace Presentacion
             form.Show();
         }
 
-        
+        private void dgInmobiliario_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgInmobiliario.SelectedRows.Count > 0)
+            {
+                var selectedRow = dgInmobiliario.SelectedRows[0];
+                var imagePath = selectedRow.Cells["ImagePath"].Value as string;
+
+                if (!string.IsNullOrEmpty(imagePath) && System.IO.File.Exists(imagePath))
+                {
+                    try
+                    {
+                        // Cargar la imagen en el PictureBox
+                        pictureBoxInmobiliario.Image = new Bitmap(imagePath);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("No se puede cargar la imagen: " + ex.Message);
+                    }
+                }
+                else
+                {
+                    // Si no hay imagen, limpiar el PictureBox
+                    pictureBoxInmobiliario.Image = null;
+                }
+            }
+        }
     }
 }

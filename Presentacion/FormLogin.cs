@@ -16,7 +16,7 @@ namespace Presentacion
     public partial class FormLogin : Form
     {
         private NUsuario nUsuario = new NUsuario();
-        private List<Usuario> usuariosRegistrados = new List<Usuario>();
+        //private List<Usuario> usuariosRegistrados = new List<Usuario>();
 
         public FormLogin()
         {
@@ -43,9 +43,20 @@ namespace Presentacion
                 // Verificar si la contraseña es correcta
                 if (usuario.Password == passwoard)
                 {
-                    MessageBox.Show("Inicio de sesión exitosa.");
-                    FormInmobilario form = new FormInmobilario(usuario);
-                    form.Show();
+                    if(usuario.Rol == "Admin")
+                    {
+
+                        MessageBox.Show("Inicio de sesión como Admin exitoso.");
+                        FormAdminMenu form = new FormAdminMenu();
+                        form.Show();
+                    }
+                    else
+                    {
+
+                        MessageBox.Show("Inicio de sesión exitosa.");
+                        FormInmobilario form = new FormInmobilario(usuario);
+                        form.Show();
+                    }
                 }
                 else
                 {

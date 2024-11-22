@@ -192,6 +192,7 @@
             this.dgInmobiliario.RowTemplate.Height = 24;
             this.dgInmobiliario.Size = new System.Drawing.Size(815, 214);
             this.dgInmobiliario.TabIndex = 59;
+            this.dgInmobiliario.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgInmobiliario_CellContentClick);
             // 
             // label7
             // 

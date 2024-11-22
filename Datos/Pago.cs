@@ -19,8 +19,7 @@ namespace Datos
         {
             this.Contrato = new HashSet<Contrato>();
         }
-        public string NombrePropiedad { get; set; }
-        public string NombreInquilino { get; set; }
+    
         public int IdPago { get; set; }
         public System.DateTime FechaPago { get; set; }
         public double Monto { get; set; }

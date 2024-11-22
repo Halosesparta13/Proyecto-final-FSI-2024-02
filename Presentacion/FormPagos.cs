@@ -55,8 +55,6 @@ namespace Presentacion
 
                 Pago nuevoPago = new Pago
                 {
-                    NombrePropiedad = tbNombrePropiedad.Text,
-                    NombreInquilino = tbNombre.Text,
                     Monto = double.Parse(tbMonto.Text),
                     MetodoPago = cmbMetodosPago.SelectedItem.ToString(),
                     Estado = tbEstado.Text,
