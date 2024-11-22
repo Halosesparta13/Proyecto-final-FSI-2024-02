@@ -119,7 +119,7 @@
             // 
             // pictureBoxInmobiliario
             // 
-            this.pictureBoxInmobiliario.Location = new System.Drawing.Point(718, 53);
+            this.pictureBoxInmobiliario.Location = new System.Drawing.Point(709, 53);
             this.pictureBoxInmobiliario.Name = "pictureBoxInmobiliario";
             this.pictureBoxInmobiliario.Size = new System.Drawing.Size(180, 139);
             this.pictureBoxInmobiliario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
