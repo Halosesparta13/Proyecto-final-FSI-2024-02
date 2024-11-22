@@ -18,6 +18,7 @@ namespace Presentacion
             InitializeComponent();
             this.usuario = usuario;
             MostrarImmobiliarios(nInmobiliaria.ListarTodoActivo());
+            
         }
 
         private void MostrarImmobiliarios(List<Propiedad> inmobiliarios)
@@ -25,11 +26,13 @@ namespace Presentacion
             dgPropiedad.DataSource = null;
             if(inmobiliarios.Count == 0)
             {
+                lbNombreUsuario.Text = $"¡Bienvenido {usuario.NombreCompleto}! | Fecha de último acceso {DateTime.Now}";
                 return;
             }
             else
             {
                 dgPropiedad.DataSource = inmobiliarios;
+                lbNombreUsuario.Text = $"¡Bienvenido {usuario.NombreCompleto}! | Fecha de último acceso {DateTime.Now}";
             }
         }
 
@@ -83,6 +86,7 @@ namespace Presentacion
                 Num_Habitaciones = numHabitaciones,
                 Descripcion = tbDescripcion.Text,
                 IdUsuario = usuario.IdUsuario,
+                Contrato = new List<Contrato>()
             };
 
             //Registrar

@@ -50,6 +50,7 @@
             this.tbNumeroHabitaciones = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.dgPropiedad = new System.Windows.Forms.DataGridView();
+            this.lbNombreUsuario = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInmobiliario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgPropiedad)).BeginInit();
@@ -253,11 +254,21 @@
             this.dgPropiedad.Size = new System.Drawing.Size(805, 236);
             this.dgPropiedad.TabIndex = 88;
             // 
+            // lbNombreUsuario
+            // 
+            this.lbNombreUsuario.AutoSize = true;
+            this.lbNombreUsuario.Location = new System.Drawing.Point(94, 535);
+            this.lbNombreUsuario.Name = "lbNombreUsuario";
+            this.lbNombreUsuario.Size = new System.Drawing.Size(75, 16);
+            this.lbNombreUsuario.TabIndex = 89;
+            this.lbNombreUsuario.Text = "Bienvenido";
+            // 
             // FormInmobilario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(926, 552);
+            this.ClientSize = new System.Drawing.Size(926, 560);
+            this.Controls.Add(this.lbNombreUsuario);
             this.Controls.Add(this.dgPropiedad);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.tbNumeroHabitaciones);
@@ -314,5 +325,6 @@
         private System.Windows.Forms.TextBox tbNumeroHabitaciones;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.DataGridView dgPropiedad;
+        private System.Windows.Forms.Label lbNombreUsuario;
     }
 }
