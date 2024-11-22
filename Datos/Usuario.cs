@@ -35,10 +35,5 @@ namespace Datos
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Propiedad> Propiedad { get; set; }
-
-        public List<global::Presentacion.Inmobiliario> ListarTodoActivo()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

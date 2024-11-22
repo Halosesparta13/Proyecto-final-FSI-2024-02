@@ -19,10 +19,10 @@ namespace Presentacion
         public FormInquilinos()
         {
             InitializeComponent();
-            
+            MostrarInquilinos(nInquilino.ListarActivos());
         }
 
-        private void CargarInquilinos(List<Inquilino> ListarActivos)
+        private void MostrarInquilinos(List<Inquilino> ListarActivos)
         {
             dgInquilinos.DataSource = null;
             if (ListarActivos.Count == 0)
@@ -93,7 +93,7 @@ namespace Presentacion
             MessageBox.Show(mensaje);
 
             // Actualizar la lista de inquilinos
-            CargarInquilinos(nInquilino.ListarActivos());
+            MostrarInquilinos(nInquilino.ListarActivos());
 
 
 
@@ -128,7 +128,7 @@ namespace Presentacion
                     MessageBox.Show(mensaje);
 
                     // Actualizar la lista de inquilinos activos
-                    CargarInquilinos(nInquilino.ListarActivos());
+                    MostrarInquilinos(nInquilino.ListarActivos());
                 }
             }
             catch (Exception ex)
@@ -152,9 +152,5 @@ namespace Presentacion
             dpFechaFin.Value = DateTime.Now;
         }
 
-        private void FormInquilinos_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
