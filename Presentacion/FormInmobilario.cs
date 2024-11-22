@@ -149,7 +149,7 @@ namespace Presentacion
                 IdUsuario = usuario.IdUsuario,
                 Contrato = new List<Contrato>(),
                 Image_Path = imageLocation,
-            };
+            }
 
             //Registrar
             string mensaje = nInmobiliaria.Registrar(propiedad);

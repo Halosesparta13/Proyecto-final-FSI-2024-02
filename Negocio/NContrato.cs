@@ -16,4 +16,6 @@ namespace Negocio
             return dContrato.ListarTodo();
         }
     }
+
+
 }

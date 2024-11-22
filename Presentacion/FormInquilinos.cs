@@ -16,6 +16,8 @@ namespace Presentacion
     public partial class FormInquilinos : Form
     {
         private NInquilino nInquilino = new NInquilino();
+        private NContrato nContrato = new NContrato();
+        private NInmobiliaria nInmobiliaria = new NInmobiliaria();
         private Usuario usuario; // Almacena el objeto PROPIETARIO
         private int idInmueble;
         public FormInquilinos(Usuario usuario, int idInmueble)
@@ -24,6 +26,12 @@ namespace Presentacion
             MostrarInquilinos(nInquilino.ListarActivos());
             this.usuario = usuario;
             this.idInmueble = idInmueble;
+            //lblmonto_Total = nContrato.ListarTodo().Monto de pago
+        }
+
+        private void MostrarMontoTotal(List<Contrato> contratos)
+        {
+            
         }
 
         private void MostrarInquilinos(List<Inquilino> ListarActivos)
@@ -40,6 +48,35 @@ namespace Presentacion
                 lblNombre_Usuario.Text = $"¡Bienvenido {usuario.NombreCompleto}! | Fecha de último acceso {DateTime.Now}";
             }
         }
+        private void MostrarMontoPorInmueble(int idInmueble)
+        {
+            try
+            {
+                // Obtener todos los contratos desde la capa de datos
+                List<Propiedad> inmuebles = nInmobiliaria.ListarTodoActivo();
+
+                // Filtrar los contratos por el IdInmueble proporcionado
+                var inmueble = inmuebles.FirstOrDefault(i => i.IdPropiedad == idInmueble);
+                
+                // Validar que el inmueble exista
+                if (inmueble == null)
+                {
+                    MessageBox.Show("No se encontró el inmueble especificado.");
+                    return;
+                }
+
+                // Obtener el monto de pago del inmueble
+                decimal montoPago = inmueble.montoTotal;
+
+                // Mostrar el monto en un label
+                lblmonto_Total.Text = $"Monto Total: {montoPago:C}";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al obtener el monto total: {ex.Message}");
+            }
+        }
+
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
@@ -90,8 +127,6 @@ namespace Presentacion
                 CorreoElectronicoInquilino = correoElectronicoInquilino,
                 DNI = dni,
                 IdPropiedad = idInmueble,
-                Estado = estado,
-                Eliminado = eliminado
             };
 
             // Llamar al método para registrar el inquilino
@@ -100,9 +135,6 @@ namespace Presentacion
 
             // Actualizar la lista de inquilinos
             MostrarInquilinos(nInquilino.ListarActivos());
-
-
-
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
