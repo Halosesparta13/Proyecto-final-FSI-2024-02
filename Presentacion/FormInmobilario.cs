@@ -32,10 +32,42 @@ namespace Presentacion
             else
             {
                 dgPropiedad.DataSource = inmobiliarios;
+                dgPropiedad.Columns["Image_Path"].Visible = false;
+                dgPropiedad.Columns["Contrato"].Visible = false;
+                dgPropiedad.Columns["Inquilino"].Visible = false;
+                dgPropiedad.Columns["Usuario"].Visible = false;
+                dgPropiedad.Columns["IdPropiedad"].Visible = false;
+                dgPropiedad.Columns["IdUsuario"].Visible = false;
+                dgPropiedad.Columns["Eliminado"].Visible = false;
+                dgPropiedad.Columns["Estado"].Visible = false;
                 lbNombreUsuario.Text = $"¡Bienvenido {usuario.NombreCompleto}! | Fecha de último acceso {DateTime.Now}";
             }
         }
 
+
+
+        private String imageLocation = "";
+        private void btnCargarImagen_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog dialog = new OpenFileDialog();
+                dialog.Filter = "jpg files(*.jpg)|*.jpg| PNG files(*.png)|*.png| All Files(*.*)|*.*";
+
+                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    imageLocation = dialog.FileName;
+
+                    pictureBoxInmobiliario.ImageLocation = imageLocation;
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error en la carga", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine(ex.Message);
+            }
+        }
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
             //Validaciones
@@ -86,7 +118,8 @@ namespace Presentacion
                 Num_Habitaciones = numHabitaciones,
                 Descripcion = tbDescripcion.Text,
                 IdUsuario = usuario.IdUsuario,
-                Contrato = new List<Contrato>()
+                Contrato = new List<Contrato>(),
+                Image_Path = imageLocation,
             };
 
             //Registrar
@@ -134,13 +167,17 @@ namespace Presentacion
             FormReportes form = new FormReportes();
             form.Show();
         }
-        /*
-        private void dgInmobiliario_CellContentClick(object sender, DataGridViewCellEventArgs e)
+
+   
+        private void dgPropiedad_SelectionChanged(object sender, EventArgs e)
         {
             if (dgPropiedad.SelectedRows.Count > 0)
             {
+                // Obtener la fila seleccionada
                 var selectedRow = dgPropiedad.SelectedRows[0];
-                var imagePath = selectedRow.Cells["ImagePath"].Value as string;
+
+                // Intentar obtener el valor de la celda "Image_Path"
+                var imagePath = selectedRow.Cells["Image_Path"].Value as string;
 
                 if (!string.IsNullOrEmpty(imagePath) && System.IO.File.Exists(imagePath))
                 {
@@ -156,10 +193,10 @@ namespace Presentacion
                 }
                 else
                 {
-                    // Si no hay imagen, limpiar el PictureBox
+                    // Si no hay imagen o la ruta no es válida, limpiar el PictureBox
                     pictureBoxInmobiliario.Image = null;
                 }
             }
-        }*/
+        }
     }
 }

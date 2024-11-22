@@ -21,6 +21,7 @@ namespace Datos
         }
     
         public int IdPago { get; set; }
+        public string Nombe { get; set; }
         public System.DateTime FechaPago { get; set; }
         public double Monto { get; set; }
         public string MetodoPago { get; set; }

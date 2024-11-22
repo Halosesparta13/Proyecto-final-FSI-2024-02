@@ -39,7 +39,9 @@ namespace Datos
             {
                 using (var context = new BDEFEntities())
                 {
-                    return context.Propiedad.Where(i => i.Eliminado == "0").ToList();
+                    context.Configuration.LazyLoadingEnabled = false;
+                    return context.Propiedad.Where(i => i.Eliminado == "0")
+                        .ToList();
                 }
             }
             catch (Exception ex)

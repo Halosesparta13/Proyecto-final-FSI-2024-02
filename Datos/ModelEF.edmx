@@ -36,6 +36,7 @@
             <PropertyRef Name="IdPago" />
           </Key>
           <Property Name="IdPago" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombe" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="FechaPago" Type="datetime" Nullable="false" />
           <Property Name="Monto" Type="float" Nullable="false" />
           <Property Name="MetodoPago" Type="varchar" MaxLength="50" Nullable="false" />
@@ -55,6 +56,7 @@
           <Property Name="IdUsuario" Type="int" Nullable="false" />
           <Property Name="Eliminado" Type="nchar" MaxLength="1" Nullable="false" />
           <Property Name="Estado" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Image_Path" Type="varchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -194,6 +196,7 @@
             <PropertyRef Name="IdPago" />
           </Key>
           <Property Name="IdPago" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombe" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="FechaPago" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Monto" Type="Double" Nullable="false" />
           <Property Name="MetodoPago" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
@@ -214,6 +217,7 @@
           <Property Name="IdUsuario" Type="Int32" Nullable="false" />
           <Property Name="Eliminado" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Image_Path" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Contrato" Relationship="Self.FK_Contrato_Propiedad" FromRole="Propiedad" ToRole="Contrato" />
           <NavigationProperty Name="Inquilino" Relationship="Self.FK_Inquilino_Propiedad" FromRole="Propiedad" ToRole="Inquilino" />
           <NavigationProperty Name="Usuario" Relationship="Self.FK_Propiedad_Usuario" FromRole="Propiedad" ToRole="Usuario" />
@@ -354,6 +358,7 @@
             <EntityTypeMapping TypeName="ModelEF.Pago">
               <MappingFragment StoreEntitySet="Pago">
                 <ScalarProperty Name="IdPago" ColumnName="IdPago" />
+                <ScalarProperty Name="Nombe" ColumnName="Nombe" />
                 <ScalarProperty Name="FechaPago" ColumnName="FechaPago" />
                 <ScalarProperty Name="Monto" ColumnName="Monto" />
                 <ScalarProperty Name="MetodoPago" ColumnName="MetodoPago" />
@@ -374,6 +379,7 @@
                 <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
                 <ScalarProperty Name="Eliminado" ColumnName="Eliminado" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Image_Path" ColumnName="Image_Path" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
