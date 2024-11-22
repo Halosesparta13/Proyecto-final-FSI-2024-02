@@ -31,11 +31,13 @@ namespace Presentacion
             dgInquilinos.DataSource = null;
             if (ListarActivos.Count == 0)
             {
+                lblNombre_Usuario.Text = $"¡Bienvenido {usuario.NombreCompleto}! | Fecha de último acceso {DateTime.Now}";
                 return;
             }
             else
             {
                 dgInquilinos.DataSource = ListarActivos;
+                lblNombre_Usuario.Text = $"¡Bienvenido {usuario.NombreCompleto}! | Fecha de último acceso {DateTime.Now}";
             }
         }
 

@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NContrato.cs" />
     <Compile Include="NInmobiliaria.cs" />
     <Compile Include="NInquilino.cs" />
     <Compile Include="NPago.cs" />
