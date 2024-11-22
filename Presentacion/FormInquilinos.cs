@@ -16,24 +16,62 @@ namespace Presentacion
     public partial class FormInquilinos : Form
     {
         private NInquilino nInquilino = new NInquilino();
-        public FormInquilinos()
+        private NContrato nContrato = new NContrato();
+        private NInmobiliaria nInmobiliaria = new NInmobiliaria();
+        private Usuario usuario; // Almacena el objeto PROPIETARIO
+        private int idInmueble;
+        public FormInquilinos(Usuario usuario, int idInmueble)
         {
             InitializeComponent();
             MostrarInquilinos(nInquilino.ListarActivos());
+            this.usuario = usuario;
+            this.idInmueble = idInmueble;
+            MostrarMontoPorInmueble(idInmueble);
         }
-
         private void MostrarInquilinos(List<Inquilino> ListarActivos)
         {
             dgInquilinos.DataSource = null;
             if (ListarActivos.Count == 0)
             {
+                //lblNombre_Usuario.Text = $"¡Bienvenido {usuario.NombreCompleto}! | Fecha de último acceso {DateTime.Now}";
                 return;
             }
             else
             {
                 dgInquilinos.DataSource = ListarActivos;
+                //lblNombre_Usuario.Text = $"¡Bienvenido {usuario.NombreCompleto}! | Fecha de último acceso {DateTime.Now}";
             }
         }
+        private void MostrarMontoPorInmueble(int idInmueble)
+        {
+            try
+            {
+                // Obtener todos los inmuebles desde la capa de datos
+                List<Propiedad> inmuebles = nInmobiliaria.ListarTodoActivo();
+
+                // Filtrar los inmuebles por el IdInmueble proporcionado
+                var inmueble = inmuebles.FirstOrDefault(i => i.IdPropiedad == idInmueble);
+
+                // Validar que el inmueble exista
+                if (inmueble == null)
+                {
+                    MessageBox.Show("No se encontró el inmueble especificado.");
+                    return;
+                }
+
+                // Obtener el monto de pago del inmueble, manejando valores nulos
+                decimal montoPago = inmueble.Monto ?? 0;
+
+                // Mostrar el monto en un label
+                lblmonto_Total.Text = $"Monto Total: {montoPago:C}";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al obtener el monto total: {ex.Message}");
+            }
+        }
+
+
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
@@ -41,7 +79,7 @@ namespace Presentacion
             string telefono = tbCelular.Text;
             string correoElectronicoInquilino = tbCorreo.Text;
             string dni = tbDNI.Text;
-            int idPropiedad = 1; // esta por defecto para probar se tiene que modificar 
+            //int idPropiedad = 1; // esta por defecto para probar se tiene que modificar NO VA
             string estado = "Activo";
             string eliminado = "0";
 
@@ -83,9 +121,7 @@ namespace Presentacion
                 Telefono = telefono,
                 CorreoElectronicoInquilino = correoElectronicoInquilino,
                 DNI = dni,
-                IdPropiedad = idPropiedad,
-                Estado = estado,
-                Eliminado = eliminado
+                IdPropiedad = idInmueble,
             };
 
             // Llamar al método para registrar el inquilino
@@ -94,9 +130,6 @@ namespace Presentacion
 
             // Actualizar la lista de inquilinos
             MostrarInquilinos(nInquilino.ListarActivos());
-
-
-
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)

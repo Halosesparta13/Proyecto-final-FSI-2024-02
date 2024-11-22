@@ -29,13 +29,8 @@
         private void InitializeComponent()
         {
             this.btnPagar = new System.Windows.Forms.Button();
-            this.lblNombrePropiedad = new System.Windows.Forms.Label();
-            this.dpFecha = new System.Windows.Forms.DateTimePicker();
-            this.tbNombrePropiedad = new System.Windows.Forms.TextBox();
-            this.lblFecha = new System.Windows.Forms.Label();
             this.lblMonto = new System.Windows.Forms.Label();
             this.tbMonto = new System.Windows.Forms.TextBox();
-            this.tbEstado = new System.Windows.Forms.TextBox();
             this.lblMetodo = new System.Windows.Forms.Label();
             this.lblEstado = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
@@ -43,15 +38,20 @@
             this.cmbMetodosPago = new System.Windows.Forms.ComboBox();
             this.btnSalir = new System.Windows.Forms.Button();
             this.dgPagos = new System.Windows.Forms.DataGridView();
-            this.lblTitulo = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cbEstado = new System.Windows.Forms.ComboBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBoxInmobiliario = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgPagos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInmobiliario)).BeginInit();
             this.SuspendLayout();
             // 
             // btnPagar
             // 
-            this.btnPagar.Location = new System.Drawing.Point(659, 165);
+            this.btnPagar.Location = new System.Drawing.Point(535, 422);
             this.btnPagar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnPagar.Name = "btnPagar";
             this.btnPagar.Size = new System.Drawing.Size(108, 37);
@@ -60,44 +60,10 @@
             this.btnPagar.UseVisualStyleBackColor = true;
             this.btnPagar.Click += new System.EventHandler(this.btnPagar_Click);
             // 
-            // lblNombrePropiedad
-            // 
-            this.lblNombrePropiedad.AutoSize = true;
-            this.lblNombrePropiedad.Location = new System.Drawing.Point(91, 90);
-            this.lblNombrePropiedad.Name = "lblNombrePropiedad";
-            this.lblNombrePropiedad.Size = new System.Drawing.Size(164, 16);
-            this.lblNombrePropiedad.TabIndex = 1;
-            this.lblNombrePropiedad.Text = "Nombre de la propiedad : ";
-            // 
-            // dpFecha
-            // 
-            this.dpFecha.Location = new System.Drawing.Point(235, 125);
-            this.dpFecha.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dpFecha.Name = "dpFecha";
-            this.dpFecha.Size = new System.Drawing.Size(176, 22);
-            this.dpFecha.TabIndex = 2;
-            // 
-            // tbNombrePropiedad
-            // 
-            this.tbNombrePropiedad.Location = new System.Drawing.Point(265, 88);
-            this.tbNombrePropiedad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbNombrePropiedad.Name = "tbNombrePropiedad";
-            this.tbNombrePropiedad.Size = new System.Drawing.Size(123, 22);
-            this.tbNombrePropiedad.TabIndex = 3;
-            // 
-            // lblFecha
-            // 
-            this.lblFecha.AutoSize = true;
-            this.lblFecha.Location = new System.Drawing.Point(91, 129);
-            this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(130, 16);
-            this.lblFecha.TabIndex = 4;
-            this.lblFecha.Text = "Fecha y hora actual :";
-            // 
             // lblMonto
             // 
             this.lblMonto.AutoSize = true;
-            this.lblMonto.Location = new System.Drawing.Point(435, 93);
+            this.lblMonto.Location = new System.Drawing.Point(5, 23);
             this.lblMonto.Name = "lblMonto";
             this.lblMonto.Size = new System.Drawing.Size(50, 16);
             this.lblMonto.TabIndex = 5;
@@ -105,24 +71,16 @@
             // 
             // tbMonto
             // 
-            this.tbMonto.Location = new System.Drawing.Point(497, 90);
+            this.tbMonto.Location = new System.Drawing.Point(67, 20);
             this.tbMonto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbMonto.Name = "tbMonto";
             this.tbMonto.Size = new System.Drawing.Size(123, 22);
             this.tbMonto.TabIndex = 6;
             // 
-            // tbEstado
-            // 
-            this.tbEstado.Location = new System.Drawing.Point(497, 163);
-            this.tbEstado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbEstado.Name = "tbEstado";
-            this.tbEstado.Size = new System.Drawing.Size(123, 22);
-            this.tbEstado.TabIndex = 7;
-            // 
             // lblMetodo
             // 
             this.lblMetodo.AutoSize = true;
-            this.lblMetodo.Location = new System.Drawing.Point(431, 128);
+            this.lblMetodo.Location = new System.Drawing.Point(228, 22);
             this.lblMetodo.Name = "lblMetodo";
             this.lblMetodo.Size = new System.Drawing.Size(113, 16);
             this.lblMetodo.TabIndex = 8;
@@ -131,7 +89,7 @@
             // lblEstado
             // 
             this.lblEstado.AutoSize = true;
-            this.lblEstado.Location = new System.Drawing.Point(431, 165);
+            this.lblEstado.Location = new System.Drawing.Point(228, 62);
             this.lblEstado.Name = "lblEstado";
             this.lblEstado.Size = new System.Drawing.Size(56, 16);
             this.lblEstado.TabIndex = 9;
@@ -140,7 +98,7 @@
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(91, 165);
+            this.lblNombre.Location = new System.Drawing.Point(5, 59);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(62, 16);
             this.lblNombre.TabIndex = 11;
@@ -148,7 +106,7 @@
             // 
             // tbNombre
             // 
-            this.tbNombre.Location = new System.Drawing.Point(161, 165);
+            this.tbNombre.Location = new System.Drawing.Point(67, 56);
             this.tbNombre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbNombre.Name = "tbNombre";
             this.tbNombre.Size = new System.Drawing.Size(123, 22);
@@ -162,7 +120,7 @@
             "Plin ",
             "Tarjeta ",
             "Efectivo"});
-            this.cmbMetodosPago.Location = new System.Drawing.Point(555, 126);
+            this.cmbMetodosPago.Location = new System.Drawing.Point(352, 20);
             this.cmbMetodosPago.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbMetodosPago.Name = "cmbMetodosPago";
             this.cmbMetodosPago.Size = new System.Drawing.Size(128, 24);
@@ -170,7 +128,7 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(659, 454);
+            this.btnSalir.Location = new System.Drawing.Point(649, 422);
             this.btnSalir.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(108, 37);
@@ -182,22 +140,13 @@
             // dgPagos
             // 
             this.dgPagos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgPagos.Location = new System.Drawing.Point(83, 219);
+            this.dgPagos.Location = new System.Drawing.Point(86, 194);
             this.dgPagos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgPagos.Name = "dgPagos";
             this.dgPagos.RowHeadersWidth = 62;
             this.dgPagos.RowTemplate.Height = 28;
             this.dgPagos.Size = new System.Drawing.Size(671, 219);
             this.dgPagos.TabIndex = 15;
-            // 
-            // lblTitulo
-            // 
-            this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Location = new System.Drawing.Point(325, 22);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(94, 16);
-            this.lblTitulo.TabIndex = 30;
-            this.lblTitulo.Text = "Registro Pago";
             // 
             // pictureBox2
             // 
@@ -208,33 +157,70 @@
             this.pictureBox2.TabIndex = 88;
             this.pictureBox2.TabStop = false;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft YaHei", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(314, 24);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(215, 37);
+            this.label8.TabIndex = 93;
+            this.label8.Text = "Registro Pago";
+            // 
+            // cbEstado
+            // 
+            this.cbEstado.FormattingEnabled = true;
+            this.cbEstado.Location = new System.Drawing.Point(352, 56);
+            this.cbEstado.Name = "cbEstado";
+            this.cbEstado.Size = new System.Drawing.Size(128, 24);
+            this.cbEstado.TabIndex = 94;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.cbEstado);
+            this.groupBox1.Controls.Add(this.cmbMetodosPago);
+            this.groupBox1.Controls.Add(this.tbNombre);
+            this.groupBox1.Controls.Add(this.lblNombre);
+            this.groupBox1.Controls.Add(this.lblEstado);
+            this.groupBox1.Controls.Add(this.lblMetodo);
+            this.groupBox1.Controls.Add(this.tbMonto);
+            this.groupBox1.Controls.Add(this.lblMonto);
+            this.groupBox1.Location = new System.Drawing.Point(86, 83);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(505, 91);
+            this.groupBox1.TabIndex = 95;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Datos Pago";
+            // 
+            // pictureBoxInmobiliario
+            // 
+            this.pictureBoxInmobiliario.Location = new System.Drawing.Point(577, 35);
+            this.pictureBoxInmobiliario.Name = "pictureBoxInmobiliario";
+            this.pictureBoxInmobiliario.Size = new System.Drawing.Size(180, 139);
+            this.pictureBoxInmobiliario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxInmobiliario.TabIndex = 96;
+            this.pictureBoxInmobiliario.TabStop = false;
+            // 
             // FormPagos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(805, 502);
+            this.ClientSize = new System.Drawing.Size(780, 470);
+            this.Controls.Add(this.pictureBoxInmobiliario);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.dgPagos);
             this.Controls.Add(this.btnSalir);
-            this.Controls.Add(this.cmbMetodosPago);
-            this.Controls.Add(this.tbNombre);
-            this.Controls.Add(this.lblNombre);
-            this.Controls.Add(this.lblEstado);
-            this.Controls.Add(this.lblMetodo);
-            this.Controls.Add(this.tbEstado);
-            this.Controls.Add(this.tbMonto);
-            this.Controls.Add(this.lblMonto);
-            this.Controls.Add(this.lblFecha);
-            this.Controls.Add(this.tbNombrePropiedad);
-            this.Controls.Add(this.dpFecha);
-            this.Controls.Add(this.lblNombrePropiedad);
             this.Controls.Add(this.btnPagar);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormPagos";
             this.Text = "FormPagos";
             ((System.ComponentModel.ISupportInitialize)(this.dgPagos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInmobiliario)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -243,13 +229,8 @@
         #endregion
 
         private System.Windows.Forms.Button btnPagar;
-        private System.Windows.Forms.Label lblNombrePropiedad;
-        private System.Windows.Forms.DateTimePicker dpFecha;
-        private System.Windows.Forms.TextBox tbNombrePropiedad;
-        private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Label lblMonto;
         private System.Windows.Forms.TextBox tbMonto;
-        private System.Windows.Forms.TextBox tbEstado;
         private System.Windows.Forms.Label lblMetodo;
         private System.Windows.Forms.Label lblEstado;
         private System.Windows.Forms.Label lblNombre;
@@ -257,7 +238,10 @@
         private System.Windows.Forms.ComboBox cmbMetodosPago;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.DataGridView dgPagos;
-        private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox cbEstado;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.PictureBox pictureBoxInmobiliario;
     }
 }
