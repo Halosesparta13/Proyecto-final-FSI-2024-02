@@ -40,7 +40,7 @@
             this.dgPagos = new System.Windows.Forms.DataGridView();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbEstado = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBoxInmobiliario = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgPagos)).BeginInit();
@@ -167,17 +167,17 @@
             this.label8.TabIndex = 93;
             this.label8.Text = "Registro Pago";
             // 
-            // comboBox1
+            // cbEstado
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(352, 56);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(128, 24);
-            this.comboBox1.TabIndex = 94;
+            this.cbEstado.FormattingEnabled = true;
+            this.cbEstado.Location = new System.Drawing.Point(352, 56);
+            this.cbEstado.Name = "cbEstado";
+            this.cbEstado.Size = new System.Drawing.Size(128, 24);
+            this.cbEstado.TabIndex = 94;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.cbEstado);
             this.groupBox1.Controls.Add(this.cmbMetodosPago);
             this.groupBox1.Controls.Add(this.tbNombre);
             this.groupBox1.Controls.Add(this.lblNombre);
@@ -240,7 +240,7 @@
         private System.Windows.Forms.DataGridView dgPagos;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbEstado;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.PictureBox pictureBoxInmobiliario;
     }

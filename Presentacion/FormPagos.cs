@@ -43,11 +43,11 @@ namespace Presentacion
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(tbNombrePropiedad.Text) ||
+                if (string.IsNullOrWhiteSpace(tbNombre.Text) ||
                     string.IsNullOrWhiteSpace(tbNombre.Text) ||
                     string.IsNullOrWhiteSpace(tbMonto.Text) ||
                     cmbMetodosPago.SelectedItem == null ||
-                    string.IsNullOrWhiteSpace(tbEstado.Text))
+                    string.IsNullOrWhiteSpace(cbEstado.Text))
                 {
                     MessageBox.Show("Por favor, complete todos los campos.");
                     return;
@@ -57,8 +57,7 @@ namespace Presentacion
                 {
                     Monto = double.Parse(tbMonto.Text),
                     MetodoPago = cmbMetodosPago.SelectedItem.ToString(),
-                    Estado = tbEstado.Text,
-                    FechaPago = dpFecha.Value
+                    Estado = cbEstado.Text,
                 };
 
                 string mensaje = nPago.Registrar(nuevoPago);
@@ -85,12 +84,9 @@ namespace Presentacion
 
         private void LimpiarCampos()
         {
-            tbNombrePropiedad.Clear();
             tbNombre.Clear();
             tbMonto.Clear();
             cmbMetodosPago.SelectedIndex = -1;
-            tbEstado.Clear();
-            dpFecha.Value = DateTime.Now;
         }
     }
 }
