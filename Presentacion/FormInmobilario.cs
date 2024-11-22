@@ -44,6 +44,35 @@ namespace Presentacion
             }
         }
 
+        private void dgPropiedad_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgPropiedad.SelectedRows.Count > 0)
+            {
+                // Obtener la fila seleccionada
+                var selectedRow = dgPropiedad.SelectedRows[0];
+
+                // Intentar obtener el valor de la celda "Image_Path"
+                var imagePath = selectedRow.Cells["Image_Path"].Value as string;
+
+                if (!string.IsNullOrEmpty(imagePath) && System.IO.File.Exists(imagePath))
+                {
+                    try
+                    {
+                        // Cargar la imagen en el PictureBox
+                        pictureBoxInmobiliario.Image = new Bitmap(imagePath);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("No se puede cargar la imagen: " + ex.Message);
+                    }
+                }
+                else
+                {
+                    // Si no hay imagen o la ruta no es válida, limpiar el PictureBox
+                    pictureBoxInmobiliario.Image = null;
+                }
+            }
+        }
 
 
         private String imageLocation = "";
@@ -168,35 +197,5 @@ namespace Presentacion
             form.Show();
         }
 
-   
-        private void dgPropiedad_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dgPropiedad.SelectedRows.Count > 0)
-            {
-                // Obtener la fila seleccionada
-                var selectedRow = dgPropiedad.SelectedRows[0];
-
-                // Intentar obtener el valor de la celda "Image_Path"
-                var imagePath = selectedRow.Cells["Image_Path"].Value as string;
-
-                if (!string.IsNullOrEmpty(imagePath) && System.IO.File.Exists(imagePath))
-                {
-                    try
-                    {
-                        // Cargar la imagen en el PictureBox
-                        pictureBoxInmobiliario.Image = new Bitmap(imagePath);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("No se puede cargar la imagen: " + ex.Message);
-                    }
-                }
-                else
-                {
-                    // Si no hay imagen o la ruta no es válida, limpiar el PictureBox
-                    pictureBoxInmobiliario.Image = null;
-                }
-            }
-        }
     }
 }
