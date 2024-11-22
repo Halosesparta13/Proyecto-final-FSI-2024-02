@@ -18,7 +18,9 @@ namespace Presentacion
         public FormRegistroPropietario()
         {
             InitializeComponent();
+            MostrarPropietarios(nUsuario.ListarTodo());
         }
+
         private void MostrarPropietarios(List<Usuario> usuarios)
         {
             dgPropietarios.DataSource = null;

@@ -46,16 +46,16 @@
             this.tbNombreCompleto = new System.Windows.Forms.TextBox();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.dgPropietarios = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgPropietarios)).BeginInit();
+            this.dgPropietarios = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgPropietarios)).BeginInit();
             this.SuspendLayout();
             // 
             // label8
@@ -223,17 +223,6 @@
             this.label1.TabIndex = 21;
             this.label1.Text = "Nombre Completo";
             // 
-            // dgPropietarios
-            // 
-            this.dgPropietarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgPropietarios.Location = new System.Drawing.Point(89, 301);
-            this.dgPropietarios.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgPropietarios.Name = "dgPropietarios";
-            this.dgPropietarios.RowHeadersWidth = 51;
-            this.dgPropietarios.RowTemplate.Height = 24;
-            this.dgPropietarios.Size = new System.Drawing.Size(858, 249);
-            this.dgPropietarios.TabIndex = 20;
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.tbContraseña);
@@ -285,6 +274,17 @@
             this.pictureBox2.TabIndex = 43;
             this.pictureBox2.TabStop = false;
             // 
+            // dgPropietarios
+            // 
+            this.dgPropietarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgPropietarios.Location = new System.Drawing.Point(89, 301);
+            this.dgPropietarios.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgPropietarios.Name = "dgPropietarios";
+            this.dgPropietarios.RowHeadersWidth = 51;
+            this.dgPropietarios.RowTemplate.Height = 24;
+            this.dgPropietarios.Size = new System.Drawing.Size(858, 249);
+            this.dgPropietarios.TabIndex = 20;
+            // 
             // FormRegistroPropietario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -301,13 +301,13 @@
             this.Controls.Add(this.dgPropietarios);
             this.Name = "FormRegistroPropietario";
             this.Text = "FormPropietarios";
-            ((System.ComponentModel.ISupportInitialize)(this.dgPropietarios)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgPropietarios)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -333,10 +333,10 @@
         private System.Windows.Forms.TextBox tbNombreCompleto;
         private System.Windows.Forms.Button btnRegistrar;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dgPropietarios;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.DataGridView dgPropietarios;
     }
 }

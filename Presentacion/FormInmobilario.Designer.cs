@@ -186,7 +186,7 @@
             // dgInmobiliario
             // 
             this.dgInmobiliario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgInmobiliario.Location = new System.Drawing.Point(82, 308);
+            this.dgInmobiliario.Location = new System.Drawing.Point(83, 291);
             this.dgInmobiliario.Name = "dgInmobiliario";
             this.dgInmobiliario.RowHeadersWidth = 51;
             this.dgInmobiliario.RowTemplate.Height = 24;
@@ -250,7 +250,7 @@
             this.pictureBox2.Image = global::Presentacion.Properties.Resources.barra_propietarios;
             this.pictureBox2.Location = new System.Drawing.Point(-1, -30);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(67, 576);
+            this.pictureBox2.Size = new System.Drawing.Size(67, 616);
             this.pictureBox2.TabIndex = 87;
             this.pictureBox2.TabStop = false;
             // 
@@ -258,7 +258,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(926, 532);
+            this.ClientSize = new System.Drawing.Size(926, 552);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.tbNumeroHabitaciones);
             this.Controls.Add(this.tbArea);

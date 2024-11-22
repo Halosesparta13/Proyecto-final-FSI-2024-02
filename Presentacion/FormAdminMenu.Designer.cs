@@ -41,22 +41,23 @@
             this.tbCelular = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbEstado = new System.Windows.Forms.ComboBox();
+            this.cbRol = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.tbContraseña = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tbNombreUsuario = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.dgUsuario = new System.Windows.Forms.DataGridView();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.cbRol = new System.Windows.Forms.ComboBox();
-            this.cbEstado = new System.Windows.Forms.ComboBox();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnEliminarLogico = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.btnEliminarFisico = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgUsuario)).BeginInit();
@@ -198,6 +199,46 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Creación de usuario";
             // 
+            // cbEstado
+            // 
+            this.cbEstado.FormattingEnabled = true;
+            this.cbEstado.Items.AddRange(new object[] {
+            "Activo",
+            "Inactivo"});
+            this.cbEstado.Location = new System.Drawing.Point(410, 47);
+            this.cbEstado.Name = "cbEstado";
+            this.cbEstado.Size = new System.Drawing.Size(144, 24);
+            this.cbEstado.TabIndex = 36;
+            // 
+            // cbRol
+            // 
+            this.cbRol.FormattingEnabled = true;
+            this.cbRol.Items.AddRange(new object[] {
+            "Admin",
+            "Propietario"});
+            this.cbRol.Location = new System.Drawing.Point(410, 17);
+            this.cbRol.Name = "cbRol";
+            this.cbRol.Size = new System.Drawing.Size(144, 24);
+            this.cbRol.TabIndex = 35;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(290, 53);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(50, 16);
+            this.label10.TabIndex = 34;
+            this.label10.Text = "Estado";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(290, 25);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(28, 16);
+            this.label9.TabIndex = 32;
+            this.label9.Text = "Rol";
+            // 
             // tbContraseña
             // 
             this.tbContraseña.Location = new System.Drawing.Point(134, 51);
@@ -243,49 +284,9 @@
             this.dgUsuario.Size = new System.Drawing.Size(816, 248);
             this.dgUsuario.TabIndex = 48;
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(290, 25);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(28, 16);
-            this.label9.TabIndex = 32;
-            this.label9.Text = "Rol";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(290, 53);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(50, 16);
-            this.label10.TabIndex = 34;
-            this.label10.Text = "Estado";
-            // 
-            // cbRol
-            // 
-            this.cbRol.FormattingEnabled = true;
-            this.cbRol.Items.AddRange(new object[] {
-            "Admin",
-            "Propietario"});
-            this.cbRol.Location = new System.Drawing.Point(410, 17);
-            this.cbRol.Name = "cbRol";
-            this.cbRol.Size = new System.Drawing.Size(144, 24);
-            this.cbRol.TabIndex = 35;
-            // 
-            // cbEstado
-            // 
-            this.cbEstado.FormattingEnabled = true;
-            this.cbEstado.Items.AddRange(new object[] {
-            "Activo",
-            "Inactivo"});
-            this.cbEstado.Location = new System.Drawing.Point(410, 47);
-            this.cbEstado.Name = "cbEstado";
-            this.cbEstado.Size = new System.Drawing.Size(144, 24);
-            this.cbEstado.TabIndex = 36;
-            // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(540, 275);
+            this.btnSalir.Location = new System.Drawing.Point(664, 275);
             this.btnSalir.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(103, 36);
@@ -327,23 +328,23 @@
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
-            // btnEliminar
+            // btnEliminarLogico
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(431, 275);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(103, 36);
-            this.btnEliminar.TabIndex = 54;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            this.btnEliminarLogico.Location = new System.Drawing.Point(431, 275);
+            this.btnEliminarLogico.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnEliminarLogico.Name = "btnEliminarLogico";
+            this.btnEliminarLogico.Size = new System.Drawing.Size(116, 36);
+            this.btnEliminarLogico.TabIndex = 54;
+            this.btnEliminarLogico.Text = "Eliminar Lógico";
+            this.btnEliminarLogico.UseVisualStyleBackColor = true;
+            this.btnEliminarLogico.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Presentacion.Properties.Resources.admin;
-            this.pictureBox1.Location = new System.Drawing.Point(664, 78);
+            this.pictureBox1.Location = new System.Drawing.Point(687, 78);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(237, 184);
+            this.pictureBox1.Size = new System.Drawing.Size(187, 184);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 52;
             this.pictureBox1.TabStop = false;
@@ -357,12 +358,24 @@
             this.pictureBox2.TabIndex = 44;
             this.pictureBox2.TabStop = false;
             // 
+            // btnEliminarFisico
+            // 
+            this.btnEliminarFisico.Location = new System.Drawing.Point(553, 275);
+            this.btnEliminarFisico.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnEliminarFisico.Name = "btnEliminarFisico";
+            this.btnEliminarFisico.Size = new System.Drawing.Size(107, 36);
+            this.btnEliminarFisico.TabIndex = 55;
+            this.btnEliminarFisico.Text = "Eliminar Físico";
+            this.btnEliminarFisico.UseVisualStyleBackColor = true;
+            this.btnEliminarFisico.Click += new System.EventHandler(this.btnEliminarFisico_Click);
+            // 
             // FormAdminMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(920, 584);
-            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.btnEliminarFisico);
+            this.Controls.Add(this.btnEliminarLogico);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnSalir);
@@ -417,6 +430,7 @@
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnRegistrar;
         private System.Windows.Forms.Button btnModificar;
-        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnEliminarLogico;
+        private System.Windows.Forms.Button btnEliminarFisico;
     }
 }

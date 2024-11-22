@@ -18,6 +18,7 @@ namespace Presentacion
         public FormAdminMenu()
         {
             InitializeComponent();
+            MostrarUsuarios(nUsuario.ListarTodo());
         }
 
         private void MostrarUsuarios(List<Usuario> usuarios)
@@ -108,6 +109,18 @@ namespace Presentacion
             cbEstado.Items.Clear();
         }
 
+        //Eliminar lógico
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if(dgUsuario.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Seleccione un registro");
+                return;
+            }
+            int id = int.Parse(dgUsuario.SelectedRows[0].Cells[0].Value.ToString());
+            string mensaje = nUsuario.EliminarLogico(id);
+            MessageBox.Show(mensaje);
+        }
         private void btnModificar_Click(object sender, EventArgs e)
         {
             if (dgUsuario.SelectedRows.Count == 0)
@@ -180,9 +193,16 @@ namespace Presentacion
             this.Close();
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private void btnEliminarFisico_Click(object sender, EventArgs e)
         {
-
+            if (dgUsuario.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Seleccione un registro");
+                return;
+            }
+            int id = int.Parse(dgUsuario.SelectedRows[0].Cells[0].Value.ToString());
+            string mensaje = nUsuario.EliminadoFisico(id);
+            MessageBox.Show(mensaje);
         }
     }
 }

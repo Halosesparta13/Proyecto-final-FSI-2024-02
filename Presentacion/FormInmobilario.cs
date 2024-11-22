@@ -59,7 +59,7 @@ namespace Presentacion
                     MessageBox.Show("El area debe de ser mayor");
                     return;
                 }
-                numHabitaciones = 0;
+                numHabitaciones = int.Parse(tbNumeroHabitaciones.Text);
                 if(numHabitaciones <= 0)
                 {
                     MessageBox.Show("El numero de habitaciones debe de ser mayor a 0");
@@ -68,7 +68,7 @@ namespace Presentacion
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ingresa un valor valido en la casilla Pago Mensual ");
+                MessageBox.Show("Ingresa un valor valido");
                 Console.WriteLine(ex.Message);
                 return;
             }
