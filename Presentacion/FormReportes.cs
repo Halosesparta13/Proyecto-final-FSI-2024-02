@@ -17,10 +17,15 @@ namespace Presentacion
         private NUsuario nUsuario = new NUsuario();
         private NInmobiliaria nInmobiliaria = new NInmobiliaria();
         private NInquilino nInquilino = new NInquilino();
-        private NPago nPago = new NPago(); 
-        public FormReportes()
+        private NPago nPago = new NPago();
+
+        private Usuario usuario; // Almacena el objeto PROPIETARIO
+        public FormReportes(Usuario usuario)
         {
             InitializeComponent();
+            this.usuario = usuario;
+            lbNombreUsuario.Text = $"¡Bienvenido {usuario.NombreCompleto}! | Fecha de último acceso {DateTime.Now}";
+
         }
 
         private void MostrarInmuebles(List<Propiedad> inmuebles)

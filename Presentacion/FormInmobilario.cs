@@ -194,7 +194,7 @@ namespace Presentacion
 
         private void btnReportes_Click(object sender, EventArgs e)
         {
-            FormReportes form = new FormReportes();
+            FormReportes form = new FormReportes(usuario);
             form.Show();
         }
 
