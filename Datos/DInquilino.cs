@@ -40,6 +40,8 @@ namespace Datos
             {
                 using (var context = new BDEFEntities())
                 {
+                    context.Configuration.LazyLoadingEnabled = false;
+
                     return context.Inquilino.Where(i => i.Eliminado == "0").ToList();
                 }
             }

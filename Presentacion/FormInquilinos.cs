@@ -26,22 +26,36 @@ namespace Presentacion
             MostrarInquilinos(nInquilino.ListarActivos());
             this.usuario = usuarios;
             this.idInmueble = idInmueble;
+            // Obtener todos los inquilinos activos
+            List<Inquilino> inquilinosActivos = nInquilino.ListarActivos();
+
+            // Mostrar los inquilinos filtrados por IdInmueble
+            MostrarInquilinos(inquilinosActivos);
+
             MostrarMontoPorInmueble(idInmueble);
             lblNombre_Usuario.Text = $"¡Bienvenido {usuario.NombreCompleto}! | Fecha de último acceso {DateTime.Now}";
         }
-        private void MostrarInquilinos(List<Inquilino> ListarActivos)
+        private void MostrarInquilinos(List<Inquilino> inquilinos)
         {
+            // Filtrar los inquilinos por el idInmueble
+            var inquilinosFiltrados = inquilinos.Where(i => i.IdPropiedad == idInmueble).ToList();
+
             dgInquilinos.DataSource = null;
-            if (ListarActivos.Count == 0)
+
+            if (inquilinosFiltrados.Count == 0)
             {
-                
+                //MessageBox.Show("No hay inquilinos asociados a este inmueble.");
                 return;
             }
             else
             {
-                dgInquilinos.DataSource = ListarActivos;
+
+                // Establecer los inquilinos filtrados como fuente de datos del DataGridView
+                dgInquilinos.DataSource = inquilinosFiltrados;
             }
+
         }
+
         private void MostrarMontoPorInmueble(int idInmueble)
         {
             try
