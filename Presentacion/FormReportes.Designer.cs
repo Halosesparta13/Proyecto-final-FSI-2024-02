@@ -31,7 +31,6 @@
             this.btnReporte1 = new System.Windows.Forms.Button();
             this.btnReporte2 = new System.Windows.Forms.Button();
             this.btnReporte3 = new System.Windows.Forms.Button();
-            this.btnReporte4 = new System.Windows.Forms.Button();
             this.dgvReporte = new System.Windows.Forms.DataGridView();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnSalir = new System.Windows.Forms.Button();
@@ -43,49 +42,40 @@
             // btnReporte1
             // 
             this.btnReporte1.Location = new System.Drawing.Point(83, 62);
-            this.btnReporte1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnReporte1.Margin = new System.Windows.Forms.Padding(4);
             this.btnReporte1.Name = "btnReporte1";
             this.btnReporte1.Size = new System.Drawing.Size(264, 63);
             this.btnReporte1.TabIndex = 0;
-            this.btnReporte1.Text = "Generar Reporte de Usuarios y sus propiedades no eliminadas";
+            this.btnReporte1.Text = "Ordenar inmuebles por precio de alquiler";
             this.btnReporte1.UseVisualStyleBackColor = true;
             this.btnReporte1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnReporte2
             // 
             this.btnReporte2.Location = new System.Drawing.Point(83, 149);
-            this.btnReporte2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnReporte2.Margin = new System.Windows.Forms.Padding(4);
             this.btnReporte2.Name = "btnReporte2";
             this.btnReporte2.Size = new System.Drawing.Size(264, 63);
             this.btnReporte2.TabIndex = 1;
+            this.btnReporte2.Text = "Ordenar Inmuebles por tipo de inmueble";
             this.btnReporte2.UseVisualStyleBackColor = true;
             this.btnReporte2.Click += new System.EventHandler(this.btnReporte2_Click);
             // 
             // btnReporte3
             // 
             this.btnReporte3.Location = new System.Drawing.Point(83, 229);
-            this.btnReporte3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnReporte3.Margin = new System.Windows.Forms.Padding(4);
             this.btnReporte3.Name = "btnReporte3";
             this.btnReporte3.Size = new System.Drawing.Size(264, 63);
             this.btnReporte3.TabIndex = 2;
             this.btnReporte3.UseVisualStyleBackColor = true;
             this.btnReporte3.Click += new System.EventHandler(this.btnReporte3_Click);
             // 
-            // btnReporte4
-            // 
-            this.btnReporte4.Location = new System.Drawing.Point(83, 321);
-            this.btnReporte4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnReporte4.Name = "btnReporte4";
-            this.btnReporte4.Size = new System.Drawing.Size(264, 63);
-            this.btnReporte4.TabIndex = 3;
-            this.btnReporte4.UseVisualStyleBackColor = true;
-            this.btnReporte4.Click += new System.EventHandler(this.btnReporte4_Click);
-            // 
             // dgvReporte
             // 
             this.dgvReporte.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReporte.Location = new System.Drawing.Point(370, 62);
-            this.dgvReporte.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvReporte.Margin = new System.Windows.Forms.Padding(4);
             this.dgvReporte.Name = "dgvReporte";
             this.dgvReporte.RowHeadersWidth = 51;
             this.dgvReporte.Size = new System.Drawing.Size(546, 351);
@@ -102,7 +92,7 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(139, 403);
+            this.btnSalir.Location = new System.Drawing.Point(141, 316);
             this.btnSalir.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(144, 60);
@@ -130,11 +120,10 @@
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.dgvReporte);
-            this.Controls.Add(this.btnReporte4);
             this.Controls.Add(this.btnReporte3);
             this.Controls.Add(this.btnReporte2);
             this.Controls.Add(this.btnReporte1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormReportes";
             this.Text = "FormReportes";
             ((System.ComponentModel.ISupportInitialize)(this.dgvReporte)).EndInit();
@@ -149,7 +138,6 @@
         private System.Windows.Forms.Button btnReporte1;
         private System.Windows.Forms.Button btnReporte2;
         private System.Windows.Forms.Button btnReporte3;
-        private System.Windows.Forms.Button btnReporte4;
         private System.Windows.Forms.DataGridView dgvReporte;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button btnSalir;

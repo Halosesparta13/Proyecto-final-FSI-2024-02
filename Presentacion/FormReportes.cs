@@ -15,11 +15,19 @@ namespace Presentacion
     {
         private NUsuario nUsuario = new NUsuario();
         private NInmobiliaria nInmobiliaria = new NInmobiliaria();
+        private NInquilino nInquilino = new NInquilino();
+        private NPago nPago = new NPago(); 
         public FormReportes()
         {
             InitializeComponent();
         }
 
+        private void MostrarReportes()
+        {
+
+        }
+
+        //Ordenar Inmuebles registrados por precio de alquiler
         private void button1_Click(object sender, EventArgs e)
         {
             // Limpiar el DataGridView

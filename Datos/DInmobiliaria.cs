@@ -122,5 +122,53 @@ namespace Datos
                 return ex.Message;
             }
         }
+
+        // Listar Todo (activos) ordenado por TipoPropiedad específico
+        public List<Propiedad> ListarTodoActivoOrdenadoPorTipo(string tipoPropiedad)
+        {
+            List<Propiedad> propiedades = new List<Propiedad>();
+            try
+            {
+                using (var context = new BDEFEntities())
+                {
+                    context.Configuration.LazyLoadingEnabled = false;
+
+                    // Filtrar por el tipo de propiedad y ordenar por el campo TipoPropiedad
+                    return context.Propiedad
+                        .Where(i => i.Eliminado == "0" && i.TipoPropiedad == tipoPropiedad) // Filtra por TipoPropiedad
+                        .OrderBy(p => p.TipoPropiedad) // Ordena por TipoPropiedad
+                        .ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return propiedades;
+            }
+        }
+
+        public List<Propiedad> ListarTodoActivoOrdenadoPorPrecio()
+        {
+            List<Propiedad> propiedades = new List<Propiedad>();
+            try
+            {
+                using (var context = new BDEFEntities())
+                {
+                    context.Configuration.LazyLoadingEnabled = false;
+                    // Ordena por el precio de alquiler (PrecioAlquiler) en orden ascendente
+                    return context.Propiedad
+                        .Where(i => i.Eliminado == "0")
+                        .OrderBy(p => p.Monto) // Asegúrate de que 'PrecioAlquiler' exista en tu modelo
+                        .ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return propiedades;
+            }
+        }
+
+
     }
 }

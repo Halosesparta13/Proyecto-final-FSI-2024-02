@@ -40,6 +40,14 @@ namespace Negocio
         {
             return dInmobiliaria.EliminadoFisico(idPropiedad);
         }
+        public List<Propiedad> ListarTodoActivoOrdenadoPorTipo(string tipoPropiedad)
+        {
+            return dInmobiliaria.ListarTodoActivoOrdenadoPorTipo(tipoPropiedad);
+        }
+        public List<Propiedad> ListarTodoActivoOrdenadoPorPrecio()
+        {
+            return ListarTodoActivoOrdenadoPorPrecio();
+        }
     }
 }
 
