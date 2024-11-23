@@ -76,7 +76,7 @@ namespace Presentacion
                 MessageBox.Show("Ingrese un valor correcto para número de habitaciones");
                 return;
             }
-            MostrarInmuebles(nInmobiliaria.ListarPorNumeroDeHabitaciones(nInmobiliaria.ListarPorNumeroDeHabitaciones(n_Habitaciones)));
+            MostrarInmuebles(nInmobiliaria.ListarPorNumeroDeHabitaciones(n_Habitaciones));
         }
 
         private void btnReporte4_Click(object sender, EventArgs e)
