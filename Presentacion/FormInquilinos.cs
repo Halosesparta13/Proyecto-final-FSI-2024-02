@@ -192,8 +192,8 @@ namespace Presentacion
                 MessageBox.Show("Seleccione un registro");
                 return;
             }
-            int id = int.Parse(dgInquilinos.SelectedRows[0].Cells[0].Value.ToString());
-            FormPagos form = new FormPagos(id, usuario);
+            int idInquilinos = int.Parse(dgInquilinos.SelectedRows[0].Cells[0].Value.ToString());
+            FormPagos form = new FormPagos(idInquilinos, usuario, idInmueble);
             form.Show();
         }
     }

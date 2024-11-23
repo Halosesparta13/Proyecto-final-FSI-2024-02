@@ -120,6 +120,7 @@
             // 
             // pictureBoxInmobiliario
             // 
+            this.pictureBoxInmobiliario.Image = global::Presentacion.Properties.Resources.inmueble;
             this.pictureBoxInmobiliario.Location = new System.Drawing.Point(709, 53);
             this.pictureBoxInmobiliario.Name = "pictureBoxInmobiliario";
             this.pictureBoxInmobiliario.Size = new System.Drawing.Size(180, 139);

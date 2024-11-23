@@ -16,13 +16,17 @@ namespace Presentacion
     {
         private NPago nPago = new NPago();
         private Usuario usuario; // Almacena el objeto PROPIETARIO
-        private int id;
-        public FormPagos(int id, Usuario usuario)
+        private NInmobiliaria nInmobiliaria = new NInmobiliaria();
+        private int idInquilinos;
+        private int idInmueble;
+        public FormPagos(int idInquilinos, Usuario usuario, int idInmueble)
         {
             InitializeComponent();
-            this.id = id;
+            this.idInquilinos = idInquilinos;
             this.usuario = usuario;
+            this.idInmueble = idInmueble;
             MostrarPagos(nPago.ListarPagos());
+            MostrarMontoPorInmueble(idInmueble);
             lblNombre_Usuario.Text = $"¡Bienvenido {usuario.NombreCompleto}! | Fecha de último acceso {DateTime.Now}";
         }
         private void MostrarPagos(List<Pago> pagos)
@@ -37,16 +41,40 @@ namespace Presentacion
                 dgPagos.DataSource = pagos; 
             }
         }
+        private void MostrarMontoPorInmueble(int idInmueble)
+        {
+            try
+            {
+                // Obtener todos los inmuebles desde la capa de datos
+                List<Propiedad> inmuebles = nInmobiliaria.ListarTodoActivo();
 
+                // Filtrar los inmuebles por el IdInmueble proporcionado
+                var inmueble = inmuebles.FirstOrDefault(i => i.IdPropiedad == idInmueble);
+
+                // Validar que el inmueble exista
+                if (inmueble == null)
+                {
+                    MessageBox.Show("No se encontró el inmueble especificado.");
+                    return;
+                }
+
+                // Obtener el monto de pago del inmueble, manejando valores nulos
+                decimal montoPago = inmueble.Monto ?? 0;
+
+                // Mostrar el monto en un label
+                lbMontoTotal.Text = $"{montoPago:C}";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al obtener el monto total: {ex.Message}");
+            }
+        }
         private void btnPagar_Click(object sender, EventArgs e)
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(tbNombre.Text) ||
-                    string.IsNullOrWhiteSpace(tbNombre.Text) ||
-                    string.IsNullOrWhiteSpace(tbMonto.Text) ||
-                    cmbMetodosPago.SelectedItem == null ||
-                    string.IsNullOrWhiteSpace(cbEstado.Text))
+                if (tbNombre.Text =="" ||
+                    cmbMetodosPago.Text== "")
                 {
                     MessageBox.Show("Por favor, complete todos los campos.");
                     return;
@@ -54,9 +82,10 @@ namespace Presentacion
 
                 Pago nuevoPago = new Pago
                 {
-                    Monto = double.Parse(tbMonto.Text),
+                    Monto = double.Parse(lbMontoTotal.Text),
                     MetodoPago = cmbMetodosPago.SelectedItem.ToString(),
-                    Estado = cbEstado.Text,
+                    Nombe = tbNombre.Text,
+                    Estado = "Pagado",
                 };
 
                 string mensaje = nPago.Registrar(nuevoPago);
@@ -84,7 +113,6 @@ namespace Presentacion
         private void LimpiarCampos()
         {
             tbNombre.Clear();
-            tbMonto.Clear();
             cmbMetodosPago.SelectedIndex = -1;
         }
     }
