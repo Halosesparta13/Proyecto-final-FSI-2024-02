@@ -43,6 +43,7 @@
             this.cbEstado = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBoxInmobiliario = new System.Windows.Forms.PictureBox();
+            this.lblNombre_Usuario = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgPagos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -201,11 +202,21 @@
             this.pictureBoxInmobiliario.TabIndex = 96;
             this.pictureBoxInmobiliario.TabStop = false;
             // 
+            // lblNombre_Usuario
+            // 
+            this.lblNombre_Usuario.AutoSize = true;
+            this.lblNombre_Usuario.Location = new System.Drawing.Point(83, 432);
+            this.lblNombre_Usuario.Name = "lblNombre_Usuario";
+            this.lblNombre_Usuario.Size = new System.Drawing.Size(110, 16);
+            this.lblNombre_Usuario.TabIndex = 97;
+            this.lblNombre_Usuario.Text = "Nombre_Usuario";
+            // 
             // FormPagos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(780, 470);
+            this.Controls.Add(this.lblNombre_Usuario);
             this.Controls.Add(this.pictureBoxInmobiliario);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label8);
@@ -243,5 +254,6 @@
         private System.Windows.Forms.ComboBox cbEstado;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.PictureBox pictureBoxInmobiliario;
+        private System.Windows.Forms.Label lblNombre_Usuario;
     }
 }

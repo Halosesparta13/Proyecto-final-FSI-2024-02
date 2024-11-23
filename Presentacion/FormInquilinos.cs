@@ -20,26 +20,26 @@ namespace Presentacion
         private NInmobiliaria nInmobiliaria = new NInmobiliaria();
         private Usuario usuario; // Almacena el objeto PROPIETARIO
         private int idInmueble;
-        public FormInquilinos(Usuario usuario, int idInmueble)
+        public FormInquilinos(Usuario usuarios, int idInmueble)
         {
             InitializeComponent();
             MostrarInquilinos(nInquilino.ListarActivos());
-            this.usuario = usuario;
+            this.usuario = usuarios;
             this.idInmueble = idInmueble;
             MostrarMontoPorInmueble(idInmueble);
+            lblNombre_Usuario.Text = $"¡Bienvenido {usuario.NombreCompleto}! | Fecha de último acceso {DateTime.Now}";
         }
         private void MostrarInquilinos(List<Inquilino> ListarActivos)
         {
             dgInquilinos.DataSource = null;
             if (ListarActivos.Count == 0)
             {
-                //lblNombre_Usuario.Text = $"¡Bienvenido {usuario.NombreCompleto}! | Fecha de último acceso {DateTime.Now}";
+                
                 return;
             }
             else
             {
                 dgInquilinos.DataSource = ListarActivos;
-                //lblNombre_Usuario.Text = $"¡Bienvenido {usuario.NombreCompleto}! | Fecha de último acceso {DateTime.Now}";
             }
         }
         private void MostrarMontoPorInmueble(int idInmueble)
@@ -63,7 +63,7 @@ namespace Presentacion
                 decimal montoPago = inmueble.Monto ?? 0;
 
                 // Mostrar el monto en un label
-                lblmonto_Total.Text = $"Monto Total: {montoPago:C}";
+                lblmonto_Total.Text = $"{montoPago:C}";
             }
             catch (Exception ex)
             {
@@ -185,5 +185,16 @@ namespace Presentacion
             dpFechaFin.Value = DateTime.Now;
         }
 
+        private void btnPagos_Click(object sender, EventArgs e)
+        {
+            if(dgInquilinos.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Seleccione un registro");
+                return;
+            }
+            int id = int.Parse(dgInquilinos.SelectedRows[0].Cells[0].Value.ToString());
+            FormPagos form = new FormPagos(id, usuario);
+            form.Show();
+        }
     }
 }

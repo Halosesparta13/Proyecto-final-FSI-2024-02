@@ -15,17 +15,16 @@ namespace Presentacion
     public partial class FormPagos : Form
     {
         private NPago nPago = new NPago();
-        public FormPagos()
+        private Usuario usuario; // Almacena el objeto PROPIETARIO
+        private int id;
+        public FormPagos(int id, Usuario usuario)
         {
             InitializeComponent();
-            CargarPagos();
+            this.id = id;
+            this.usuario = usuario;
+            MostrarPagos(nPago.ListarPagos());
+            lblNombre_Usuario.Text = $"¡Bienvenido {usuario.NombreCompleto}! | Fecha de último acceso {DateTime.Now}";
         }
-        private void CargarPagos()
-        {
-            var pagos = nPago.ListarTodo(); 
-            MostrarPagos(pagos);         
-        }
-
         private void MostrarPagos(List<Pago> pagos)
         {
             dgPagos.DataSource = null; 
@@ -64,7 +63,7 @@ namespace Presentacion
                 MessageBox.Show(mensaje);
 
 
-                CargarPagos();
+                MostrarPagos(nPago.ListarTodo());
                 LimpiarCampos();
             }
             catch (FormatException)

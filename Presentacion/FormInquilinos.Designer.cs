@@ -32,7 +32,6 @@
             this.lblNombre_Usuario = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.dpFechaFin = new System.Windows.Forms.DateTimePicker();
-            this.lbMonto = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dpFechaPago = new System.Windows.Forms.DateTimePicker();
@@ -58,7 +57,7 @@
             // lblmonto_Total
             // 
             this.lblmonto_Total.AutoSize = true;
-            this.lblmonto_Total.Location = new System.Drawing.Point(244, 250);
+            this.lblmonto_Total.Location = new System.Drawing.Point(211, 250);
             this.lblmonto_Total.Name = "lblmonto_Total";
             this.lblmonto_Total.Size = new System.Drawing.Size(82, 16);
             this.lblmonto_Total.TabIndex = 78;
@@ -91,15 +90,6 @@
             this.dpFechaFin.Name = "dpFechaFin";
             this.dpFechaFin.Size = new System.Drawing.Size(145, 22);
             this.dpFechaFin.TabIndex = 75;
-            // 
-            // lbMonto
-            // 
-            this.lbMonto.AutoSize = true;
-            this.lbMonto.Location = new System.Drawing.Point(214, 251);
-            this.lbMonto.Name = "lbMonto";
-            this.lbMonto.Size = new System.Drawing.Size(23, 16);
-            this.lbMonto.TabIndex = 74;
-            this.lbMonto.Text = "S/.";
             // 
             // label5
             // 
@@ -149,6 +139,7 @@
             this.btnPagos.TabIndex = 69;
             this.btnPagos.Text = "Ver Pagos";
             this.btnPagos.UseVisualStyleBackColor = true;
+            this.btnPagos.Click += new System.EventHandler(this.btnPagos_Click);
             // 
             // btnLimpiar
             // 
@@ -283,7 +274,6 @@
             this.Controls.Add(this.lblNombre_Usuario);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.dpFechaFin);
-            this.Controls.Add(this.lbMonto);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dpFechaPago);
@@ -316,7 +306,6 @@
         private System.Windows.Forms.Label lblNombre_Usuario;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DateTimePicker dpFechaFin;
-        private System.Windows.Forms.Label lbMonto;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dpFechaPago;
