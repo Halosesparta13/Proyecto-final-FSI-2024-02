@@ -38,21 +38,21 @@
             this.cmbMetodosPago = new System.Windows.Forms.ComboBox();
             this.btnSalir = new System.Windows.Forms.Button();
             this.dgPagos = new System.Windows.Forms.DataGridView();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.cbEstado = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.pictureBoxInmobiliario = new System.Windows.Forms.PictureBox();
             this.lblNombre_Usuario = new System.Windows.Forms.Label();
+            this.pictureBoxInmobiliario = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgPagos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInmobiliario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // btnPagar
             // 
-            this.btnPagar.Location = new System.Drawing.Point(535, 422);
+            this.btnPagar.Location = new System.Drawing.Point(344, 191);
             this.btnPagar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnPagar.Name = "btnPagar";
             this.btnPagar.Size = new System.Drawing.Size(108, 37);
@@ -129,7 +129,7 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(649, 422);
+            this.btnSalir.Location = new System.Drawing.Point(458, 191);
             this.btnSalir.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(108, 37);
@@ -141,22 +141,13 @@
             // dgPagos
             // 
             this.dgPagos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgPagos.Location = new System.Drawing.Point(86, 194);
+            this.dgPagos.Location = new System.Drawing.Point(86, 232);
             this.dgPagos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgPagos.Name = "dgPagos";
             this.dgPagos.RowHeadersWidth = 62;
             this.dgPagos.RowTemplate.Height = 28;
             this.dgPagos.Size = new System.Drawing.Size(671, 219);
             this.dgPagos.TabIndex = 15;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::Presentacion.Properties.Resources.barra_propietarios;
-            this.pictureBox2.Location = new System.Drawing.Point(-7, -35);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(67, 576);
-            this.pictureBox2.TabIndex = 88;
-            this.pictureBox2.TabStop = false;
             // 
             // label8
             // 
@@ -193,29 +184,39 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Pago";
             // 
+            // lblNombre_Usuario
+            // 
+            this.lblNombre_Usuario.AutoSize = true;
+            this.lblNombre_Usuario.Location = new System.Drawing.Point(83, 470);
+            this.lblNombre_Usuario.Name = "lblNombre_Usuario";
+            this.lblNombre_Usuario.Size = new System.Drawing.Size(110, 16);
+            this.lblNombre_Usuario.TabIndex = 97;
+            this.lblNombre_Usuario.Text = "Nombre_Usuario";
+            // 
             // pictureBoxInmobiliario
             // 
-            this.pictureBoxInmobiliario.Location = new System.Drawing.Point(577, 35);
+            this.pictureBoxInmobiliario.Image = global::Presentacion.Properties.Resources.pagos;
+            this.pictureBoxInmobiliario.Location = new System.Drawing.Point(577, 60);
             this.pictureBoxInmobiliario.Name = "pictureBoxInmobiliario";
             this.pictureBoxInmobiliario.Size = new System.Drawing.Size(180, 139);
             this.pictureBoxInmobiliario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxInmobiliario.TabIndex = 96;
             this.pictureBoxInmobiliario.TabStop = false;
             // 
-            // lblNombre_Usuario
+            // pictureBox2
             // 
-            this.lblNombre_Usuario.AutoSize = true;
-            this.lblNombre_Usuario.Location = new System.Drawing.Point(83, 432);
-            this.lblNombre_Usuario.Name = "lblNombre_Usuario";
-            this.lblNombre_Usuario.Size = new System.Drawing.Size(110, 16);
-            this.lblNombre_Usuario.TabIndex = 97;
-            this.lblNombre_Usuario.Text = "Nombre_Usuario";
+            this.pictureBox2.Image = global::Presentacion.Properties.Resources.barra_propietarios;
+            this.pictureBox2.Location = new System.Drawing.Point(-7, -35);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(67, 576);
+            this.pictureBox2.TabIndex = 88;
+            this.pictureBox2.TabStop = false;
             // 
             // FormPagos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(780, 470);
+            this.ClientSize = new System.Drawing.Size(780, 498);
             this.Controls.Add(this.lblNombre_Usuario);
             this.Controls.Add(this.pictureBoxInmobiliario);
             this.Controls.Add(this.groupBox1);
@@ -228,10 +229,10 @@
             this.Name = "FormPagos";
             this.Text = "FormPagos";
             ((System.ComponentModel.ISupportInitialize)(this.dgPagos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInmobiliario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
