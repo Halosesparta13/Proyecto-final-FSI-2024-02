@@ -4,20 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ModelEf.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Contrato">
-          <Key>
-            <PropertyRef Name="IdContrato" />
-            <PropertyRef Name="IdPropiedad" />
-            <PropertyRef Name="IdPago" />
-          </Key>
-          <Property Name="IdContrato" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="FechaInicio" Type="datetime" Nullable="false" />
-          <Property Name="FechaFinalización" Type="datetime" Nullable="false" />
-          <Property Name="IdPropiedad" Type="int" Nullable="false" />
-          <Property Name="IdPago" Type="int" Nullable="false" />
-          <Property Name="Estado" Type="varbinary" MaxLength="50" Nullable="false" />
-        </EntityType>
+      <Schema Namespace="ModelEF.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Inquilino">
           <Key>
             <PropertyRef Name="IdInquilino" />
@@ -35,12 +22,12 @@
           <Key>
             <PropertyRef Name="IdPago" />
           </Key>
-          <Property Name="IdPago" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdPago" Type="int" Nullable="false" />
           <Property Name="Nombe" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="FechaPago" Type="datetime" Nullable="false" />
           <Property Name="Monto" Type="float" Nullable="false" />
           <Property Name="MetodoPago" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Id_Contrato" Type="int" Nullable="false" />
+          <Property Name="Id_Propiedad" Type="int" Nullable="false" />
           <Property Name="Estado" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Propiedad">
@@ -86,30 +73,6 @@
           <Property Name="Eliminado" Type="nchar" MaxLength="1" Nullable="false" />
           <Property Name="Estado" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <Association Name="FK_Contrato_Pago">
-          <End Role="Pago" Type="Self.Pago" Multiplicity="1" />
-          <End Role="Contrato" Type="Self.Contrato" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Pago">
-              <PropertyRef Name="IdPago" />
-            </Principal>
-            <Dependent Role="Contrato">
-              <PropertyRef Name="IdPago" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Contrato_Propiedad">
-          <End Role="Propiedad" Type="Self.Propiedad" Multiplicity="1" />
-          <End Role="Contrato" Type="Self.Contrato" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Propiedad">
-              <PropertyRef Name="IdPropiedad" />
-            </Principal>
-            <Dependent Role="Contrato">
-              <PropertyRef Name="IdPropiedad" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Inquilino_Propiedad">
           <End Role="Propiedad" Type="Self.Propiedad" Multiplicity="1" />
           <End Role="Inquilino" Type="Self.Inquilino" Multiplicity="*" />
@@ -119,6 +82,18 @@
             </Principal>
             <Dependent Role="Inquilino">
               <PropertyRef Name="IdPropiedad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pago_Propiedad">
+          <End Role="Propiedad" Type="Self.Propiedad" Multiplicity="1" />
+          <End Role="Pago" Type="Self.Pago" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Propiedad">
+              <PropertyRef Name="IdPropiedad" />
+            </Principal>
+            <Dependent Role="Pago">
+              <PropertyRef Name="Id_Propiedad" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -134,24 +109,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="ModelEfStoreContainer">
-          <EntitySet Name="Contrato" EntityType="Self.Contrato" Schema="dbo" store:Type="Tables" />
+        <EntityContainer Name="ModelEFStoreContainer">
           <EntitySet Name="Inquilino" EntityType="Self.Inquilino" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Pago" EntityType="Self.Pago" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Propiedad" EntityType="Self.Propiedad" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Contrato_Pago" Association="Self.FK_Contrato_Pago">
-            <End Role="Pago" EntitySet="Pago" />
-            <End Role="Contrato" EntitySet="Contrato" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Contrato_Propiedad" Association="Self.FK_Contrato_Propiedad">
-            <End Role="Propiedad" EntitySet="Propiedad" />
-            <End Role="Contrato" EntitySet="Contrato" />
-          </AssociationSet>
           <AssociationSet Name="FK_Inquilino_Propiedad" Association="Self.FK_Inquilino_Propiedad">
             <End Role="Propiedad" EntitySet="Propiedad" />
             <End Role="Inquilino" EntitySet="Inquilino" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pago_Propiedad" Association="Self.FK_Pago_Propiedad">
+            <End Role="Propiedad" EntitySet="Propiedad" />
+            <End Role="Pago" EntitySet="Pago" />
           </AssociationSet>
           <AssociationSet Name="FK_Propiedad_Usuario" Association="Self.FK_Propiedad_Usuario">
             <End Role="Usuario" EntitySet="Usuario" />
@@ -162,22 +132,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="ModelEf" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Contrato">
-          <Key>
-            <PropertyRef Name="IdContrato" />
-            <PropertyRef Name="IdPropiedad" />
-            <PropertyRef Name="IdPago" />
-          </Key>
-          <Property Name="IdContrato" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FechaInicio" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="FechaFinalización" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="IdPropiedad" Type="Int32" Nullable="false" />
-          <Property Name="IdPago" Type="Int32" Nullable="false" />
-          <Property Name="Estado" Type="Binary" MaxLength="50" FixedLength="false" Nullable="false" />
-          <NavigationProperty Name="Pago" Relationship="Self.FK_Contrato_Pago" FromRole="Contrato" ToRole="Pago" />
-          <NavigationProperty Name="Propiedad" Relationship="Self.FK_Contrato_Propiedad" FromRole="Contrato" ToRole="Propiedad" />
-        </EntityType>
+      <Schema Namespace="ModelEF" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Inquilino">
           <Key>
             <PropertyRef Name="IdInquilino" />
@@ -196,14 +151,14 @@
           <Key>
             <PropertyRef Name="IdPago" />
           </Key>
-          <Property Name="IdPago" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdPago" Type="Int32" Nullable="false" />
           <Property Name="Nombe" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="FechaPago" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Monto" Type="Double" Nullable="false" />
           <Property Name="MetodoPago" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Id_Contrato" Type="Int32" Nullable="false" />
+          <Property Name="Id_Propiedad" Type="Int32" Nullable="false" />
           <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Contrato" Relationship="Self.FK_Contrato_Pago" FromRole="Pago" ToRole="Contrato" />
+          <NavigationProperty Name="Propiedad" Relationship="Self.FK_Pago_Propiedad" FromRole="Pago" ToRole="Propiedad" />
         </EntityType>
         <EntityType Name="Propiedad">
           <Key>
@@ -220,8 +175,8 @@
           <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Image_Path" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="Monto" Type="Decimal" Precision="18" Scale="0" />
-          <NavigationProperty Name="Contrato" Relationship="Self.FK_Contrato_Propiedad" FromRole="Propiedad" ToRole="Contrato" />
           <NavigationProperty Name="Inquilino" Relationship="Self.FK_Inquilino_Propiedad" FromRole="Propiedad" ToRole="Inquilino" />
+          <NavigationProperty Name="Pago" Relationship="Self.FK_Pago_Propiedad" FromRole="Propiedad" ToRole="Pago" />
           <NavigationProperty Name="Usuario" Relationship="Self.FK_Propiedad_Usuario" FromRole="Propiedad" ToRole="Usuario" />
         </EntityType>
         <EntityType Name="sysdiagrams">
@@ -252,30 +207,6 @@
           <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Propiedad" Relationship="Self.FK_Propiedad_Usuario" FromRole="Usuario" ToRole="Propiedad" />
         </EntityType>
-        <Association Name="FK_Contrato_Pago">
-          <End Role="Pago" Type="Self.Pago" Multiplicity="1" />
-          <End Role="Contrato" Type="Self.Contrato" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Pago">
-              <PropertyRef Name="IdPago" />
-            </Principal>
-            <Dependent Role="Contrato">
-              <PropertyRef Name="IdPago" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Contrato_Propiedad">
-          <End Role="Propiedad" Type="Self.Propiedad" Multiplicity="1" />
-          <End Role="Contrato" Type="Self.Contrato" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Propiedad">
-              <PropertyRef Name="IdPropiedad" />
-            </Principal>
-            <Dependent Role="Contrato">
-              <PropertyRef Name="IdPropiedad" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Inquilino_Propiedad">
           <End Role="Propiedad" Type="Self.Propiedad" Multiplicity="1" />
           <End Role="Inquilino" Type="Self.Inquilino" Multiplicity="*" />
@@ -285,6 +216,18 @@
             </Principal>
             <Dependent Role="Inquilino">
               <PropertyRef Name="IdPropiedad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pago_Propiedad">
+          <End Role="Propiedad" Type="Self.Propiedad" Multiplicity="1" />
+          <End Role="Pago" Type="Self.Pago" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Propiedad">
+              <PropertyRef Name="IdPropiedad" />
+            </Principal>
+            <Dependent Role="Pago">
+              <PropertyRef Name="Id_Propiedad" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -301,23 +244,18 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="BDEFEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Contrato" EntityType="Self.Contrato" />
           <EntitySet Name="Inquilino" EntityType="Self.Inquilino" />
           <EntitySet Name="Pago" EntityType="Self.Pago" />
           <EntitySet Name="Propiedad" EntityType="Self.Propiedad" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" />
-          <AssociationSet Name="FK_Contrato_Pago" Association="Self.FK_Contrato_Pago">
-            <End Role="Pago" EntitySet="Pago" />
-            <End Role="Contrato" EntitySet="Contrato" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Contrato_Propiedad" Association="Self.FK_Contrato_Propiedad">
-            <End Role="Propiedad" EntitySet="Propiedad" />
-            <End Role="Contrato" EntitySet="Contrato" />
-          </AssociationSet>
           <AssociationSet Name="FK_Inquilino_Propiedad" Association="Self.FK_Inquilino_Propiedad">
             <End Role="Propiedad" EntitySet="Propiedad" />
             <End Role="Inquilino" EntitySet="Inquilino" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pago_Propiedad" Association="Self.FK_Pago_Propiedad">
+            <End Role="Propiedad" EntitySet="Propiedad" />
+            <End Role="Pago" EntitySet="Pago" />
           </AssociationSet>
           <AssociationSet Name="FK_Propiedad_Usuario" Association="Self.FK_Propiedad_Usuario">
             <End Role="Usuario" EntitySet="Usuario" />
@@ -329,21 +267,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ModelEfStoreContainer" CdmEntityContainer="BDEFEntities">
-          <EntitySetMapping Name="Contrato">
-            <EntityTypeMapping TypeName="ModelEf.Contrato">
-              <MappingFragment StoreEntitySet="Contrato">
-                <ScalarProperty Name="IdContrato" ColumnName="IdContrato" />
-                <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
-                <ScalarProperty Name="FechaFinalización" ColumnName="FechaFinalización" />
-                <ScalarProperty Name="IdPropiedad" ColumnName="IdPropiedad" />
-                <ScalarProperty Name="IdPago" ColumnName="IdPago" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
+        <EntityContainerMapping StorageEntityContainer="ModelEFStoreContainer" CdmEntityContainer="BDEFEntities">
           <EntitySetMapping Name="Inquilino">
-            <EntityTypeMapping TypeName="ModelEf.Inquilino">
+            <EntityTypeMapping TypeName="ModelEF.Inquilino">
               <MappingFragment StoreEntitySet="Inquilino">
                 <ScalarProperty Name="IdInquilino" ColumnName="IdInquilino" />
                 <ScalarProperty Name="NombreCompletoInquilino" ColumnName="NombreCompletoInquilino" />
@@ -357,20 +283,20 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Pago">
-            <EntityTypeMapping TypeName="ModelEf.Pago">
+            <EntityTypeMapping TypeName="ModelEF.Pago">
               <MappingFragment StoreEntitySet="Pago">
                 <ScalarProperty Name="IdPago" ColumnName="IdPago" />
                 <ScalarProperty Name="Nombe" ColumnName="Nombe" />
                 <ScalarProperty Name="FechaPago" ColumnName="FechaPago" />
                 <ScalarProperty Name="Monto" ColumnName="Monto" />
                 <ScalarProperty Name="MetodoPago" ColumnName="MetodoPago" />
-                <ScalarProperty Name="Id_Contrato" ColumnName="Id_Contrato" />
+                <ScalarProperty Name="Id_Propiedad" ColumnName="Id_Propiedad" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Propiedad">
-            <EntityTypeMapping TypeName="ModelEf.Propiedad">
+            <EntityTypeMapping TypeName="ModelEF.Propiedad">
               <MappingFragment StoreEntitySet="Propiedad">
                 <ScalarProperty Name="IdPropiedad" ColumnName="IdPropiedad" />
                 <ScalarProperty Name="Direccion" ColumnName="Direccion" />
@@ -387,7 +313,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="ModelEf.sysdiagrams">
+            <EntityTypeMapping TypeName="ModelEF.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -398,7 +324,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Usuario">
-            <EntityTypeMapping TypeName="ModelEf.Usuario">
+            <EntityTypeMapping TypeName="ModelEF.Usuario">
               <MappingFragment StoreEntitySet="Usuario">
                 <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />

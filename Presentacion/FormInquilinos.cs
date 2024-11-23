@@ -16,7 +16,7 @@ namespace Presentacion
     public partial class FormInquilinos : Form
     {
         private NInquilino nInquilino = new NInquilino();
-        private NContrato nContrato = new NContrato();
+        //private NContrato nContrato = new NContrato();
         private NInmobiliaria nInmobiliaria = new NInmobiliaria();
         private Usuario usuario; // Almacena el objeto PROPIETARIO
         private int idInmueble;

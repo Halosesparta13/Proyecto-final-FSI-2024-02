@@ -4,17 +4,15 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="7e40bd9e71f9430ca3475196956647fc" Name="Diagram1">
-        <EntityTypeShape EntityType="ModelEf.Contrato" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ModelEf.Inquilino" Width="1.5" PointX="5.25" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="ModelEf.Pago" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ModelEf.Propiedad" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ModelEf.sysdiagrams" Width="1.5" PointX="7.75" PointY="2.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ModelEf.Usuario" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
-        <AssociationConnector Association="ModelEf.FK_Contrato_Pago" ManuallyRouted="false" />
-        <AssociationConnector Association="ModelEf.FK_Contrato_Propiedad" ManuallyRouted="false" />
-        <AssociationConnector Association="ModelEf.FK_Inquilino_Propiedad" ManuallyRouted="false" />
-        <AssociationConnector Association="ModelEf.FK_Propiedad_Usuario" ManuallyRouted="false" />
+      <Diagram DiagramId="175a3b10350a40d4b25e249199746804" Name="Diagram1">
+        <EntityTypeShape EntityType="ModelEF.Inquilino" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelEF.Pago" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelEF.Propiedad" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelEF.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelEF.Usuario" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
+        <AssociationConnector Association="ModelEF.FK_Inquilino_Propiedad" ManuallyRouted="false" />
+        <AssociationConnector Association="ModelEF.FK_Pago_Propiedad" ManuallyRouted="false" />
+        <AssociationConnector Association="ModelEF.FK_Propiedad_Usuario" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

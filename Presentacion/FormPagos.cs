@@ -85,7 +85,6 @@ namespace Presentacion
                 Nombe = tbNombre.Text,
                 Estado = "Pagado",
                 FechaPago = DateTime.Now,
-                Contrato = new List<Contrato>()
             };
 
             string mensaje = nPago.Registrar(nuevoPago);

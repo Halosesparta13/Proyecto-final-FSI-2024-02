@@ -17,8 +17,8 @@ namespace Datos
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Propiedad()
         {
-            this.Contrato = new HashSet<Contrato>();
             this.Inquilino = new HashSet<Inquilino>();
+            this.Pago = new HashSet<Pago>();
         }
     
         public int IdPropiedad { get; set; }
@@ -34,9 +34,9 @@ namespace Datos
         public Nullable<decimal> Monto { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Contrato> Contrato { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Inquilino> Inquilino { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Pago> Pago { get; set; }
         public virtual Usuario Usuario { get; set; }
     }
 }

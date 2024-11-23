@@ -156,7 +156,6 @@ namespace Presentacion
                 Num_Habitaciones = numHabitaciones,
                 Descripcion = tbDescripcion.Text,
                 IdUsuario = usuario.IdUsuario,
-                Contrato = new List<Contrato>(),
                 Image_Path = imageLocation,
             };
 
