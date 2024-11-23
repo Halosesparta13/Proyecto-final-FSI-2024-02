@@ -185,7 +185,10 @@ namespace Presentacion
                 RUC = ruc,
             };
 
-            
+            string mensaje = nUsuario.Modificar(usuario);
+            MessageBox.Show(mensaje);
+
+            MostrarUsuarios(nUsuario.ListarTodo());
 
         }
 
@@ -205,6 +208,29 @@ namespace Presentacion
             string mensaje = nUsuario.EliminadoFisico(id);
             MessageBox.Show(mensaje);
             MostrarUsuarios(nUsuario.ListarTodo());
+        }
+
+        private void dgUsuario_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Asegurarse de que se ha seleccionado una fila (y no una celda vacía)
+            if (e.RowIndex >= 0)
+            {
+                // Obtener los valores de la fila seleccionada
+                DataGridViewRow row = dgUsuario.Rows[e.RowIndex];
+
+                // Rellenar los TextBox con los valores correspondientes
+                tbNombreCompleto.Text = row.Cells["NombreCompleto"].Value.ToString();
+                tbNombreUsuario.Text = row.Cells["UserName"].Value.ToString();
+                tbDNI.Text = row.Cells["DNI"].Value.ToString();
+                tbCorreo.Text = row.Cells["CorreoElectronico"].Value.ToString();
+                tbCelular.Text = row.Cells["Celular"].Value.ToString();
+                tbRUC.Text = row.Cells["RUC"].Value.ToString();
+                tbContraseña.Text = row.Cells["Password"].Value.ToString();
+
+                // Rellenar los ComboBox con los valores correspondientes
+                cbEstado.Text = row.Cells["Estado"].Value.ToString();
+                cbRol.Text = row.Cells["Rol"].Value.ToString();
+            }
         }
     }
 }

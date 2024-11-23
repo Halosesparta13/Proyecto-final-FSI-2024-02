@@ -283,6 +283,7 @@
             this.dgUsuario.RowTemplate.Height = 24;
             this.dgUsuario.Size = new System.Drawing.Size(816, 248);
             this.dgUsuario.TabIndex = 48;
+            this.dgUsuario.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgUsuario_CellClick);
             // 
             // btnSalir
             // 
