@@ -58,6 +58,25 @@ namespace Presentacion
             dgvReporte.DataSource = reporte;
 
         }
-    
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnReporte2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnReporte3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnReporte4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
