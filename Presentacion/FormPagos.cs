@@ -62,7 +62,7 @@ namespace Presentacion
                 decimal montoPago = inmueble.Monto ?? 0;
 
                 // Mostrar el monto en un label
-                lbMontoTotal.Text = $"{montoPago:C}";
+                lbMontoTotal.Text = $"{montoPago}";
             }
             catch (Exception ex)
             {
@@ -71,38 +71,26 @@ namespace Presentacion
         }
         private void btnPagar_Click(object sender, EventArgs e)
         {
-            try
+            if (tbNombre.Text == "" ||
+                    cmbMetodosPago.Text == "")
             {
-                if (tbNombre.Text =="" ||
-                    cmbMetodosPago.Text== "")
-                {
-                    MessageBox.Show("Por favor, complete todos los campos.");
-                    return;
-                }
-
-                Pago nuevoPago = new Pago
-                {
-                    Monto = double.Parse(lbMontoTotal.Text),
-                    MetodoPago = cmbMetodosPago.SelectedItem.ToString(),
-                    Nombe = tbNombre.Text,
-                    Estado = "Pagado",
-                };
-
-                string mensaje = nPago.Registrar(nuevoPago);
-                MessageBox.Show(mensaje);
-
-
-                MostrarPagos(nPago.ListarTodo());
-                LimpiarCampos();
+                MessageBox.Show("Por favor, complete todos los campos.");
+                return;
             }
-            catch (FormatException)
+
+            Pago nuevoPago = new Pago
             {
-                MessageBox.Show("Asegúrese de que el monto sea un número válido.");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al registrar el pago: {ex.Message}");
-            }
+                Monto = double.Parse(lbMontoTotal.Text),
+                MetodoPago = cmbMetodosPago.SelectedItem.ToString(),
+                Nombe = tbNombre.Text,
+                Estado = "Pagado",
+                FechaPago = DateTime.Now,
+                Contrato = new List<Contrato>()
+            };
+
+            string mensaje = nPago.Registrar(nuevoPago);
+            MessageBox.Show(mensaje);
+            MostrarPagos(nPago.ListarTodo());
         }
 
         private void btnSalir_Click(object sender, EventArgs e)

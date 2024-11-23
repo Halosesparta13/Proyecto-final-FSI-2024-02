@@ -15,6 +15,7 @@ namespace Datos
             {
                 using (var context = new BDEFEntities())
                 {
+                    context.Configuration.LazyLoadingEnabled = false;
                     pago.Estado = "Activo";
                     context.Pago.Add(pago);
                     context.SaveChanges();
