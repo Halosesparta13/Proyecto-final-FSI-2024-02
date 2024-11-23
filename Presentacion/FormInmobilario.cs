@@ -16,22 +16,29 @@ namespace Presentacion
         public FormInmobilario(Usuario usuario)
         {
             InitializeComponent();
-            this.usuario = usuario;
-            MostrarImmobiliarios(nInmobiliaria.ListarTodoActivo());
-            
+            this.usuario = usuario;    
+            // Obtener solo las propiedades activas para este usuario
+            var inmobiliariosActivos = nInmobiliaria.ListarTodoActivo();
+            MostrarImmobiliarios(inmobiliariosActivos);
         }
 
         private void MostrarImmobiliarios(List<Propiedad> inmobiliarios)
         {
             dgPropiedad.DataSource = null;
-            if(inmobiliarios.Count == 0)
+            if (inmobiliarios.Count == 0)
             {
                 lbNombreUsuario.Text = $"¡Bienvenido {usuario.NombreCompleto}! | Fecha de último acceso {DateTime.Now}";
                 return;
             }
             else
             {
-                dgPropiedad.DataSource = inmobiliarios;
+                // Filtrar propiedades por IdUsuario (solo mostrar las que pertenecen al usuario actual)
+                var propiedadesDelUsuario = inmobiliarios.Where(p => p.IdUsuario == usuario.IdUsuario).ToList();
+
+                // Mostrar solo las propiedades que pertenecen al usuario actual
+                dgPropiedad.DataSource = propiedadesDelUsuario;
+
+                // Ocultar las columnas no necesarias
                 dgPropiedad.Columns["Image_Path"].Visible = false;
                 dgPropiedad.Columns["Contrato"].Visible = false;
                 dgPropiedad.Columns["Inquilino"].Visible = false;
@@ -40,6 +47,7 @@ namespace Presentacion
                 dgPropiedad.Columns["IdUsuario"].Visible = false;
                 dgPropiedad.Columns["Eliminado"].Visible = false;
                 dgPropiedad.Columns["Estado"].Visible = false;
+
                 lbNombreUsuario.Text = $"¡Bienvenido {usuario.NombreCompleto}! | Fecha de último acceso {DateTime.Now}";
             }
         }
