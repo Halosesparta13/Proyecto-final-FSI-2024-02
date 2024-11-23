@@ -46,7 +46,12 @@ namespace Negocio
         }
         public List<Propiedad> ListarTodoActivoOrdenadoPorPrecio()
         {
-            return ListarTodoActivoOrdenadoPorPrecio();
+            return dInmobilaria.ListarTodoActivoOrdenadoPorPrecio();
+        }
+
+        public List<Propiedad> ListarPorNumeroDeHabitaciones(int numeroDeHabitaciones)
+        {
+            return dInmobilaria.ListarPorNumeroDeHabitaciones(numeroDeHabitaciones);
         }
     }
 }

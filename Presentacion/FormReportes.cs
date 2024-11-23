@@ -1,4 +1,5 @@
-﻿using Negocio;
+﻿using Datos;
+using Negocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,48 +23,23 @@ namespace Presentacion
             InitializeComponent();
         }
 
-        private void MostrarReportes()
+        private void MostrarInmuebles(List<Propiedad> inmuebles)
         {
-
+            dgvReporte.DataSource = null;
+            if (inmuebles.Count == 0)
+            {
+                return;
+            }
+            else
+            {
+                dgvReporte.DataSource = inmuebles;
+            }
         }
 
         //Ordenar Inmuebles registrados por precio de alquiler
         private void button1_Click(object sender, EventArgs e)
         {
-            // Limpiar el DataGridView
-            dgvReporte.DataSource = null;
-
-            // Obtener la lista de usuarios
-            var usuarios = nUsuario.ListarTodo();
-
-            // Generar la lista de usuarios y sus propiedades no eliminadas
-            var reporte = new List<dynamic>();
-
-            foreach (var usuario in usuarios)
-            {
-                var propiedades = nInmobiliaria.ListarTodoActivo()
-                                               .FindAll(p => p.IdUsuario == usuario.IdUsuario);
-
-                if (propiedades.Count > 0)
-                {
-                    foreach (var propiedad in propiedades)
-                    {
-                        reporte.Add(new
-                        {
-                            Usuario = usuario.NombreCompleto,
-                            DNI = usuario.DNI,
-                            Correo = usuario.CorreoElectronico,
-                            Propiedad = propiedad.Direccion,
-                            Tipo = propiedad.TipoPropiedad,
-                            Estado = propiedad.Estado
-                        });
-                    }
-                }
-            }
-
-            // Mostrar en el DataGridView
-          
-            dgvReporte.DataSource = reporte;
+            MostrarInmuebles(nInmobiliaria.ListarTodoActivoOrdenadoPorPrecio());
 
         }
 
@@ -74,12 +50,33 @@ namespace Presentacion
 
         private void btnReporte2_Click(object sender, EventArgs e)
         {
-
+            if(cbTipo.Text == "")
+            {
+                MessageBox.Show("Rellene todas las casillas");
+                return;
+            }
+            MostrarInmuebles(nInmobiliaria.ListarTodoActivoOrdenadoPorTipo(cbTipo.Text));
         }
 
         private void btnReporte3_Click(object sender, EventArgs e)
         {
-
+            if(tbNumeroHabitaciones.Text == "")
+            {
+                MessageBox.Show("Rellene todas las casillas");
+                return;
+            }
+            int n_Habitaciones;
+            try
+            {
+                n_Habitaciones = int.Parse(tbNumeroHabitaciones.Text);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                MessageBox.Show("Ingrese un valor correcto para número de habitaciones");
+                return;
+            }
+            MostrarInmuebles(nInmobiliaria.ListarPorNumeroDeHabitaciones(nInmobiliaria.ListarPorNumeroDeHabitaciones(n_Habitaciones)));
         }
 
         private void btnReporte4_Click(object sender, EventArgs e)

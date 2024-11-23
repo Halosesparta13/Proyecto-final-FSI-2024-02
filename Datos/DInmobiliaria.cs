@@ -169,6 +169,24 @@ namespace Datos
             }
         }
 
+        public List<Propiedad> ListarPorNumeroDeHabitaciones(int numeroDeHabitaciones)
+        {
+            try
+            {
+                using (var context = new BDEFEntities())
+                {
+                    context.Configuration.LazyLoadingEnabled = false;
+                    return context.Propiedad.Where(p => p.Num_Habitaciones == numeroDeHabitaciones && p.Eliminado == "0")
+                        .ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return new List<Propiedad>();
+            }
+        }
+
 
     }
 }

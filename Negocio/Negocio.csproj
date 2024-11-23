@@ -55,7 +55,6 @@
     <Compile Include="NInmobiliaria.cs" />
     <Compile Include="NInquilino.cs" />
     <Compile Include="NPago.cs" />
-    <Compile Include="NReporte.cs" />
     <Compile Include="NUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

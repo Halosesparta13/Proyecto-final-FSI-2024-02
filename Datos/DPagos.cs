@@ -44,5 +44,22 @@ namespace Datos
                 return new List<Pago>();
             }
         }
+
+        // Método para listar pagos no realizados (estado vacío)
+        public List<Pago> ListarPagosNoRealizados()
+        {
+            try
+            {
+                using (var context = new BDEFEntities())
+                {
+                    return context.Pago.Where(p => string.IsNullOrEmpty(p.Estado)).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return new List<Pago>();
+            }
+        }
     }
 }
