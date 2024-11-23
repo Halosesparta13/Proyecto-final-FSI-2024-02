@@ -82,9 +82,10 @@ namespace Presentacion
             {
                 Monto = double.Parse(lbMontoTotal.Text),
                 MetodoPago = cmbMetodosPago.SelectedItem.ToString(),
-                Nombe = tbNombre.Text,
+                Nombre = tbNombre.Text,
                 Estado = "Pagado",
                 FechaPago = DateTime.Now,
+                Id_Propiedad = idInmueble,
             };
 
             string mensaje = nPago.Registrar(nuevoPago);

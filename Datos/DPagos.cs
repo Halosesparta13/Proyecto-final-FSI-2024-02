@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,11 +23,18 @@ namespace Datos
                 }
                 return "Pago registrado correctamente";
             }
+            catch (DbUpdateException dbEx)
+            {
+                // Obtener detalles del error interno
+                string detallesError = dbEx.InnerException != null ? dbEx.InnerException.Message : "No se pudo obtener detalles adicionales.";
+                return $"Error al registrar pago: {dbEx.Message}. Detalles: {detallesError}";
+            }
             catch (Exception ex)
             {
-                return ex.Message;
+                return $"Error inesperado: {ex.Message}";
             }
         }
+
 
         // Listar Pagos
         public List<Pago> ListarPagos()

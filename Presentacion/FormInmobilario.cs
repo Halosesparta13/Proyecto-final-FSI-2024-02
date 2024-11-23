@@ -40,7 +40,7 @@ namespace Presentacion
 
                 // Ocultar las columnas no necesarias
                 dgPropiedad.Columns["Image_Path"].Visible = false;
-                dgPropiedad.Columns["Contrato"].Visible = false;
+                //dgPropiedad.Columns["Contrato"].Visible = false;
                 dgPropiedad.Columns["Inquilino"].Visible = false;
                 dgPropiedad.Columns["Usuario"].Visible = false;
                 dgPropiedad.Columns["IdPropiedad"].Visible = false;
